@@ -1,26 +1,27 @@
 package com.gtnewhorizons.angelica.client.font;
 
+import static org.lwjgl.system.MemoryUtil.memAlloc;
+import static org.lwjgl.system.MemoryUtil.memAllocFloat;
+import static org.lwjgl.system.MemoryUtil.memAllocInt;
 import static org.lwjgl.system.MemoryUtil.memRealloc;
 
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import com.gtnewhorizons.angelica.mixins.interfaces.FontRendererAccessor;
 import it.unimi.dsi.fastutil.chars.Char2ShortOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import jss.util.RandomXoshiro256StarStar;
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.ResourceLocation;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
-
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Objects;
+import jss.util.RandomXoshiro256StarStar;
+import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.renderer.texture.TextureManager;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 /**
  * A batching replacement for {@code FontRenderer}
@@ -35,14 +36,14 @@ public class BatchingFontRenderer {
     /** Cached locations for each unicode page atlas */
     private final ResourceLocation[] unicodePageLocations;
     /** Array of width of all the characters in default.png */
-    protected int[] charWidth = new int[256];
+    protected final int[] charWidth;
     /** Array of the start/end column (in upper/lower nibble) for every glyph in the /font directory. */
     protected byte[] glyphWidth;
     /**
      * Array of RGB triplets defining the 16 standard chat colors followed by 16 darker version of the same colors for
      * drop shadows.
      */
-    private int[] colorCode;
+    private final int[] colorCode;
     /** Location of the primary font atlas to bind. */
     protected final ResourceLocation locationFontTexture;
     /** The RenderEngine used to load and setup glyph textures. */
@@ -100,14 +101,13 @@ public class BatchingFontRenderer {
     private static final int INITIAL_BATCH_SIZE = 256;
     private static final ResourceLocation DUMMY_RESOURCE_LOCATION = new ResourceLocation("angelica$dummy",
         "this is invalid!");
-    private FloatBuffer batchVtxPositions = BufferUtils.createFloatBuffer(INITIAL_BATCH_SIZE * 2);
-    private ByteBuffer batchVtxColors = BufferUtils.createByteBuffer(INITIAL_BATCH_SIZE * 4);
-    private FloatBuffer batchVtxTexCoords = BufferUtils.createFloatBuffer(INITIAL_BATCH_SIZE * 2);
-    private IntBuffer batchIndices = BufferUtils.createIntBuffer(INITIAL_BATCH_SIZE / 2 * 3);
+    private FloatBuffer batchVtxPositions = memAllocFloat(INITIAL_BATCH_SIZE * 2);
+    private ByteBuffer batchVtxColors = memAlloc(INITIAL_BATCH_SIZE * 4);
+    private FloatBuffer batchVtxTexCoords = memAllocFloat(INITIAL_BATCH_SIZE * 2);
+    private IntBuffer batchIndices = memAllocInt(INITIAL_BATCH_SIZE / 2 * 3);
     private final ObjectArrayList<FontDrawCmd> batchCommands = ObjectArrayList.wrap(new FontDrawCmd[64], 0);
     private final ObjectArrayList<FontDrawCmd> batchCommandPool = ObjectArrayList.wrap(new FontDrawCmd[64], 0);
 
-    /**  */
     private void pushVtx(float x, float y, int rgba, float u, float v) {
         final int oldCap = batchVtxPositions.capacity() / 2;
         if (vtxWriterIndex >= oldCap) {
@@ -143,7 +143,7 @@ public class BatchingFontRenderer {
         pushQuadIdx(vtxId);
     }
 
-    private int pushQuadIdx(int startV) {
+    private void pushQuadIdx(int startV) {
         final int idx = idxWriterIndex;
         batchIndices.put(idx, startV);
         batchIndices.put(idx + 1, startV + 1);
@@ -153,12 +153,11 @@ public class BatchingFontRenderer {
         batchIndices.put(idx + 4, startV + 1);
         batchIndices.put(idx + 5, startV + 3);
         idxWriterIndex += 6;
-        return idx;
     }
 
     private void pushDrawCmd(int startIdx, int idxCount, ResourceLocation texture) {
         if (!batchCommands.isEmpty()) {
-            final FontDrawCmd lastCmd = batchCommands.get(batchCommands.size() - 1);
+            final FontDrawCmd lastCmd = batchCommands.getLast();
             final int prevEndVtx = lastCmd.startVtx + lastCmd.idxCount;
             if (prevEndVtx == startIdx && lastCmd.texture == texture) {
                 // Coalesce into one
