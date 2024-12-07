@@ -48,13 +48,20 @@ configurations {
     // testRuntimeClasspath.extendsFrom(transformedMod)
 }
 
+minecraft {
+    mainLwjglVersion = 3
+    lwjgl3Version = "3.3.3"
+}
+
 dependencies {
+    api("com.github.GTNewHorizons:lwjgl3ify:2.1.5:dev")
+
     compileOnly("com.github.GTNewHorizons:Hodgepodge:2.5.78")
 
     compileOnly("com.gtnewhorizons.retrofuturabootstrap:RetroFuturaBootstrap:0.4.0") { transitive = false }
 
-    compileOnly("org.projectlombok:lombok:1.18.22") { transitive = false }
-    annotationProcessor("org.projectlombok:lombok:1.18.22")
+    compileOnly("org.projectlombok:lombok:1.18.36") { transitive = false }
+    annotationProcessor("org.projectlombok:lombok:1.18.36")
 
     // Use modern models+textures to inject QuadProviders
     devOnlyNonPublishable('com.github.GTNewHorizons:TX-Loader:1.7.2:dev')

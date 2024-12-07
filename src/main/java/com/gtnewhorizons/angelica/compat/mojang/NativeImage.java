@@ -1,6 +1,7 @@
 package com.gtnewhorizons.angelica.compat.mojang;
 
-import com.gtnewhorizons.angelica.compat.lwjgl.MemoryStack;
+import static org.lwjgl.system.MemoryStack.stackPush;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -9,11 +10,14 @@ import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 import javax.imageio.ImageIO;
 import lombok.Getter;
+import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import net.coderbot.iris.Iris;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
+import org.lwjgl.system.MemoryStack;
 
 // TBD
+@Lwjgl3Aware
 public class NativeImage extends BufferedImage {
     @Getter
     private final Format format;
@@ -58,7 +62,7 @@ public class NativeImage extends BufferedImage {
 
 //        final int width = GL11.glGetTexLevelParameteri(GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_WIDTH);
 //        final int height = GL11.glGetTexLevelParameteri(GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT);
-        try (final MemoryStack stack = MemoryStack.stackPush()) {
+        try (final MemoryStack stack = stackPush()) {
             final IntBuffer buffer = stack.mallocInt(size);
             GL11.glGetTexImage(GL11.GL_TEXTURE_2D, level, format.glFormat, GL12.GL_UNSIGNED_INT_8_8_8_8_REV, buffer);
 

@@ -1,6 +1,7 @@
 package net.coderbot.iris.texture.util;
 
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
+import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
 import org.lwjgl.BufferUtils;
@@ -10,6 +11,7 @@ import org.lwjgl.opengl.GL30;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
+@Lwjgl3Aware
 public class TextureManipulationUtil {
 	private static int colorFillFBO = -1;
 
@@ -21,10 +23,10 @@ public class TextureManipulationUtil {
 		final int previousFramebufferId = GL11.glGetInteger(GL30.GL_FRAMEBUFFER_BINDING);
         // TODO: allocations
         final FloatBuffer previousClearColorBuffer = BufferUtils.createFloatBuffer(4);
-		GL11.glGetFloat(GL11.GL_COLOR_CLEAR_VALUE, previousClearColorBuffer);
+		GL11.glGetFloatv(GL11.GL_COLOR_CLEAR_VALUE, previousClearColorBuffer);
         final int previousTextureId = GL11.glGetInteger(GL11.GL_TEXTURE_BINDING_2D);
         final IntBuffer previousViewportBuffer = BufferUtils.createIntBuffer(4);
-		GL11.glGetInteger(GL11.GL_VIEWPORT, previousViewportBuffer);
+		GL11.glGetIntegerv(GL11.GL_VIEWPORT, previousViewportBuffer);
 
 		OpenGlHelper.func_153171_g/*glBindFramebuffer*/(GL30.GL_FRAMEBUFFER, colorFillFBO);
 		GL11.glClearColor(

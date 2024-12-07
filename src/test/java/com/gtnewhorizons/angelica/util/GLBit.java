@@ -1,7 +1,9 @@
 package com.gtnewhorizons.angelica.util;
 
 import java.util.Objects;
+import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 
+@Lwjgl3Aware
 public final class GLBit {
 
     private final int glEnum;

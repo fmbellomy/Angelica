@@ -1,7 +1,10 @@
 package me.jellysquid.mods.sodium.client.render.chunk.backends.multidraw;
 
-import com.gtnewhorizons.angelica.compat.lwjgl.CompatMemoryUtil;
+import static org.lwjgl.system.MemoryUtil.memRealloc;
 
+import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
+
+@Lwjgl3Aware
 public class IndirectCommandBufferVector extends StructBuffer {
     protected IndirectCommandBufferVector(int capacity) {
         super(capacity, 16);
@@ -32,6 +35,6 @@ public class IndirectCommandBufferVector extends StructBuffer {
     }
 
     protected void growBuffer(int n) {
-        this.buffer = CompatMemoryUtil.memReallocDirect(this.buffer, Math.max(this.buffer.capacity() * 2, this.buffer.capacity() + n));
+        this.buffer = memRealloc(this.buffer, Math.max(this.buffer.capacity() * 2, this.buffer.capacity() + n));
     }
 }

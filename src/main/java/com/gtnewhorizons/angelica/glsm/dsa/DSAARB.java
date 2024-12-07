@@ -1,12 +1,14 @@
 package com.gtnewhorizons.angelica.glsm.dsa;
 
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
+import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import org.lwjgl.opengl.ARBDirectStateAccess;
 import org.lwjgl.opengl.GL45;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
+@Lwjgl3Aware
 public class DSAARB extends DSAUnsupported {
 
     @Override
@@ -30,7 +32,7 @@ public class DSAARB extends DSAUnsupported {
 
     @Override
     public void texParameteriv(int texture, int target, int pname, IntBuffer params) {
-        ARBDirectStateAccess.glTextureParameter(texture, pname, params);
+        ARBDirectStateAccess.glTextureParameteriv(texture, pname, params);
     }
 
     @Override

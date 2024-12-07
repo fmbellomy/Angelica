@@ -1,13 +1,15 @@
 package me.jellysquid.mods.sodium.client.render;
 
-import com.gtnewhorizons.angelica.compat.lwjgl.MemoryStack;
 import com.gtnewhorizons.angelica.compat.toremove.MatrixStack;
 import com.gtnewhorizons.angelica.config.AngelicaConfig;
 import com.gtnewhorizons.angelica.rendering.RenderingState;
 import java.nio.FloatBuffer;
+import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import net.coderbot.iris.shadows.ShadowRenderingState;
 import org.joml.Matrix4f;
+import org.lwjgl.system.MemoryStack;
 
+@Lwjgl3Aware
 public class GameRendererContext {
     /**
      * Obtains a model-view-projection matrix by multiplying the projection matrix with the model-view matrix

@@ -1,5 +1,8 @@
 package com.gtnewhorizons.angelica.glsm;
 
+import static com.gtnewhorizons.angelica.loading.AngelicaTweaker.LOGGER;
+import static org.lwjglx.opengl.GL14.GL_BLEND_COLOR;
+
 import com.gtnewhorizon.gtnhlib.client.renderer.stacks.IStateStack;
 import com.gtnewhorizon.gtnhlib.client.renderer.vbo.VBOManager;
 import com.gtnewhorizons.angelica.AngelicaMod;
@@ -33,8 +36,18 @@ import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntStack;
 import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
 import it.unimi.dsi.fastutil.objects.ObjectArraySet;
+import java.nio.ByteBuffer;
+import java.nio.DoubleBuffer;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+import java.nio.ShortBuffer;
+import java.util.AbstractMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.IntSupplier;
 import lombok.Getter;
 import lombok.Setter;
+import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import net.coderbot.iris.Iris;
 import net.coderbot.iris.gbuffer_overrides.state.StateTracker;
 import net.coderbot.iris.gl.blending.AlphaTestStorage;
@@ -53,33 +66,21 @@ import org.joml.Vector3f;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.ARBMultitexture;
-import org.lwjgl.opengl.ContextCapabilities;
 import org.lwjgl.opengl.Drawable;
 import org.lwjgl.opengl.EXTTextureFilterAnisotropic;
+import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL14;
 import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GLContext;
+import org.lwjgl.opengl.GLCapabilities;
 import org.lwjgl.opengl.KHRDebug;
 
-import java.lang.Math;
-import java.nio.ByteBuffer;
-import java.nio.DoubleBuffer;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-import java.nio.ShortBuffer;
-import java.util.AbstractMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.function.IntSupplier;
-
-import static com.gtnewhorizons.angelica.loading.AngelicaTweaker.LOGGER;
-
+@Lwjgl3Aware
 @SuppressWarnings("unused") // Used in ASM
 public class GLStateManager {
-    public static ContextCapabilities capabilities;
+    public static GLCapabilities capabilities;
 
     @Getter protected static boolean poppingAttributes;
     public static boolean BYPASS_CACHE = Boolean.parseBoolean(System.getProperty("angelica.disableGlCache", "false"));
@@ -189,10 +190,10 @@ public class GLStateManager {
     }
 
     public static void preInit() {
-        capabilities = GLContext.getCapabilities();
+        capabilities = GL.getCapabilities();
         HAS_MULTIPLE_SET
             .addFeature(GL11.GL_ACCUM_CLEAR_VALUE)
-            .addFeature(GL14.GL_BLEND_COLOR)
+            .addFeature(GL_BLEND_COLOR)
             .addFeature(GL11.GL_COLOR_CLEAR_VALUE)
             .addFeature(GL11.GL_COLOR_WRITEMASK)
             .addFeature(GL11.GL_CURRENT_COLOR)
@@ -378,7 +379,7 @@ public class GLStateManager {
 
     public static void glGetBoolean(int pname, ByteBuffer params) {
         if(shouldBypassCache()) {
-            GL11.glGetBoolean(pname, params);
+            GL11.glGetBooleanv(pname, params);
             return;
         }
 
@@ -393,7 +394,7 @@ public class GLStateManager {
                 if(!HAS_MULTIPLE_SET.contains(pname)) {
                     params.put(0, (byte) (glGetBoolean(pname) ? GL11.GL_TRUE : GL11.GL_FALSE));
                 } else {
-                    GL11.glGetBoolean(pname, params);
+                    GL11.glGetBooleanv(pname, params);
                 }
             }
         }
@@ -425,7 +426,7 @@ public class GLStateManager {
 
     public static void glGetInteger(int pname, IntBuffer params) {
         if(shouldBypassCache()) {
-            GL11.glGetInteger(pname, params);
+            GL11.glGetIntegerv(pname, params);
             return;
         }
 
@@ -435,7 +436,7 @@ public class GLStateManager {
                 if(!HAS_MULTIPLE_SET.contains(pname)) {
                     params.put(0, glGetInteger(pname));
                 } else {
-                    GL11.glGetInteger(pname, params);
+                    GL11.glGetIntegerv(pname, params);
                 }
             }
         }
@@ -443,7 +444,7 @@ public class GLStateManager {
 
     public static void glGetMaterial(int face, int pname, FloatBuffer params) {
         if (shouldBypassCache()) {
-            GL11.glGetMaterial(face, pname, params);
+            GL11.glGetMaterialfv(face, pname, params);
             return;
         }
 
@@ -463,13 +464,13 @@ public class GLStateManager {
             case GL11.GL_EMISSION -> state.emission.get(0, params);
             case GL11.GL_SHININESS -> params.put(state.shininess);
             case GL11.GL_COLOR_INDEXES -> state.colorIndexes.get(0, params);
-            default -> GL11.glGetMaterial(face, pname, params);
+            default -> GL11.glGetMaterialfv(face, pname, params);
         }
     }
 
     public static void glGetLight(int light, int pname, FloatBuffer params) {
         if (shouldBypassCache()) {
-            GL11.glGetLight(light, pname, params);
+            GL11.glGetLightfv(light, pname, params);
             return;
         }
 
@@ -485,13 +486,13 @@ public class GLStateManager {
             case GL11.GL_CONSTANT_ATTENUATION -> params.put(state.constantAttenuation);
             case GL11.GL_LINEAR_ATTENUATION -> params.put(state.linearAttenuation);
             case GL11.GL_QUADRATIC_ATTENUATION -> params.put(state.quadraticAttenuation);
-            default -> GL11.glGetLight(light, pname, params);
+            default -> GL11.glGetLightfv(light, pname, params);
         }
     }
 
     public static void glGetFloat(int pname, FloatBuffer params) {
         if(shouldBypassCache()) {
-            GL11.glGetFloat(pname, params);
+            GL11.glGetFloatv(pname, params);
             return;
         }
 
@@ -505,7 +506,7 @@ public class GLStateManager {
                 if(!HAS_MULTIPLE_SET.contains(pname)) {
                     params.put(0, glGetFloat(pname));
                 } else {
-                    GL11.glGetFloat(pname, params);
+                    GL11.glGetFloatv(pname, params);
                 }
             }
         }
@@ -994,7 +995,7 @@ public class GLStateManager {
 
     public static void glDrawElements(int mode, int count, int type, ByteBuffer indices) {
         trySyncProgram();
-        GL11.glDrawElements(mode, count, type, indices);
+        GL11.glDrawElements(mode, type, indices);
     }
 
     public static void glDrawBuffer(int mode) {
@@ -1108,7 +1109,7 @@ public class GLStateManager {
     public static void glFog(int pname, FloatBuffer param) {
         // TODO: Iris Notifier
         if (HAS_MULTIPLE_SET.contains(pname)) {
-            GL11.glFog(pname, param);
+            GL11.glFogfv(pname, param);
             if (pname == GL11.GL_FOG_COLOR) {
                 final float red = param.get(0);
                 final float green = param.get(1);
@@ -1134,7 +1135,7 @@ public class GLStateManager {
             fogState.setFogAlpha(alpha);
             fogState.getFogColorBuffer().clear();
             fogState.getFogColorBuffer().put(red).put(green).put(blue).put(alpha).flip();
-            GL11.glFog(GL11.GL_FOG_COLOR, fogState.getFogColorBuffer());
+            GL11.glFogfv(GL11.GL_FOG_COLOR, fogState.getFogColorBuffer());
         }
     }
 
@@ -1309,13 +1310,13 @@ public class GLStateManager {
 
     public static void glLoadMatrix(FloatBuffer m) {
         getMatrixStack().set(m);
-        GL11.glLoadMatrix(m);
+        GL11.glLoadMatrixf(m);
     }
 
     public static void glLoadMatrix(DoubleBuffer m) {
         conversionMatrix4d.set(m);
         getMatrixStack().set(conversionMatrix4d);
-        GL11.glLoadMatrix(m);
+        GL11.glLoadMatrixd(m);
     }
 
     public static Matrix4fStack getMatrixStack() {
@@ -1359,7 +1360,7 @@ public class GLStateManager {
 
     private static final Matrix4f tempMatrix4f = new Matrix4f();
     public static void glMultMatrix(FloatBuffer floatBuffer) {
-        GL11.glMultMatrix(floatBuffer);
+        GL11.glMultMatrixf(floatBuffer);
         tempMatrix4f.set(floatBuffer);
         getMatrixStack().mul(tempMatrix4f);
     }
@@ -1367,7 +1368,7 @@ public class GLStateManager {
     public static final Matrix4d conversionMatrix4d = new Matrix4d();
     public static final Matrix4f conversionMatrix4f = new Matrix4f();
     public static void glMultMatrix(DoubleBuffer matrix) {
-        GL11.glMultMatrix(matrix);
+        GL11.glMultMatrixd(matrix);
         conversionMatrix4d.set(matrix);
         conversionMatrix4f.set(conversionMatrix4d);
         getMatrixStack().mul(conversionMatrix4f);
@@ -1423,7 +1424,7 @@ public class GLStateManager {
         perspectiveMatrix.identity().perspective((float)Math.toRadians(fovy), aspect, zNear, zFar);
 
         perspectiveMatrix.get(0, perspectiveBuffer);
-        GL11.glMultMatrix(perspectiveBuffer);
+        GL11.glMultMatrixf(perspectiveBuffer);
 
         getMatrixStack().mul(perspectiveMatrix);
 
@@ -1487,22 +1488,22 @@ public class GLStateManager {
 
     public static void glTexParameter(int target, int pname, IntBuffer params) {
         if (target != GL11.GL_TEXTURE_2D || params.remaining() != 1 ) {
-            GL11.glTexParameter(target, pname, params);
+            GL11.glTexParameteriv(target, pname, params);
             return;
         }
         if(!updateTexParameteriCache(target, getBoundTexture(), pname, params.get(0))) return;
 
-        GL11.glTexParameter(target, pname, params);
+        GL11.glTexParameteriv(target, pname, params);
     }
 
     public static void glTexParameter(int target, int pname, FloatBuffer params) {
         if (target != GL11.GL_TEXTURE_2D || params.remaining() != 1 ) {
-            GL11.glTexParameter(target, pname, params);
+            GL11.glTexParameterfv(target, pname, params);
             return;
         }
         if(!updateTexParameterfCache(target, getBoundTexture(), pname, params.get(0))) return;
 
-        GL11.glTexParameter(target, pname, params);
+        GL11.glTexParameterfv(target, pname, params);
     }
 
 
@@ -1725,7 +1726,7 @@ public class GLStateManager {
             case GL11.GL_CONSTANT_ATTENUATION -> lightState.setConstantAttenuation(params);
             case GL11.GL_LINEAR_ATTENUATION -> lightState.setLinearAttenuation(params);
             case GL11.GL_QUADRATIC_ATTENUATION -> lightState.setQuadraticAttenuation(params);
-            default -> GL11.glLight(light, pname, params);
+            default -> GL11.glLightfv(light, pname, params);
         }
     }
 
@@ -1742,7 +1743,7 @@ public class GLStateManager {
             case GL11.GL_CONSTANT_ATTENUATION -> lightState.setConstantAttenuation(params);
             case GL11.GL_LINEAR_ATTENUATION -> lightState.setLinearAttenuation(params);
             case GL11.GL_QUADRATIC_ATTENUATION -> lightState.setQuadraticAttenuation(params);
-            default -> GL11.glLight(light, pname, params);
+            default -> GL11.glLightiv(light, pname, params);
         }
     }
 
@@ -1775,7 +1776,7 @@ public class GLStateManager {
             case GL11.GL_LIGHT_MODEL_AMBIENT -> lightModel.setAmbient(params);
             case GL11.GL_LIGHT_MODEL_LOCAL_VIEWER -> lightModel.setLocalViewer(params);
             case GL11.GL_LIGHT_MODEL_TWO_SIDE -> lightModel.setTwoSide(params);
-            default -> GL11.glLightModel(pname, params);
+            default -> GL11.glLightModelfv(pname, params);
         }
     }
     public static void glLightModel(int pname, IntBuffer params) {
@@ -1784,7 +1785,7 @@ public class GLStateManager {
             case GL12.GL_LIGHT_MODEL_COLOR_CONTROL -> lightModel.setColorControl(params);
             case GL11.GL_LIGHT_MODEL_LOCAL_VIEWER -> lightModel.setLocalViewer(params);
             case GL11.GL_LIGHT_MODEL_TWO_SIDE -> lightModel.setTwoSide(params);
-            default -> GL11.glLightModel(pname, params);
+            default -> GL11.glLightModeliv(pname, params);
         }
     }
     public static void glLightModelf(int pname, float param) {
