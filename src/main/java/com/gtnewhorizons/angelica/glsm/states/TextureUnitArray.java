@@ -5,7 +5,7 @@ import com.gtnewhorizons.angelica.glsm.stacks.BooleanStateStack;
 import com.gtnewhorizons.angelica.glsm.stacks.TextureBindingStack;
 import lombok.Getter;
 import org.joml.Matrix4fStack;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 public class TextureUnitArray {
     private final TextureBindingStack[] bindings;

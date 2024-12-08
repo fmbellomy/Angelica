@@ -13,8 +13,8 @@ import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.glu.Project;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.util.glu.Project;
 
 import java.util.Map;
 

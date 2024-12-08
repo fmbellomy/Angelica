@@ -1,8 +1,8 @@
 package me.jellysquid.mods.sodium.client.gl.func;
 
-import org.lwjgl.opengl.ARBVertexArrayObject;
-import org.lwjgl.opengl.ContextCapabilities;
-import org.lwjgl.opengl.GL30;
+import org.lwjglx.opengl.ARBVertexArrayObject;
+import org.lwjglx.opengl.ContextCapabilities;
+import org.lwjglx.opengl.GL30;
 
 /**
  * Requires OpenGL 3.0+ or the ARB_vertex_array_object extension.

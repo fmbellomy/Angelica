@@ -6,9 +6,9 @@ import me.jellysquid.mods.sodium.client.gl.device.RenderDevice;
 import net.minecraft.util.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.KHRDebug;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL20;
+import org.lwjglx.opengl.KHRDebug;
 
 /**
  * An OpenGL shader program.

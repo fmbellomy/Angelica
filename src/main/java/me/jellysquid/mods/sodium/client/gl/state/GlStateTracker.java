@@ -4,8 +4,8 @@ import me.jellysquid.mods.sodium.client.gl.array.GlVertexArray;
 import me.jellysquid.mods.sodium.client.gl.buffer.GlBuffer;
 import me.jellysquid.mods.sodium.client.gl.buffer.GlBufferTarget;
 import me.jellysquid.mods.sodium.client.gl.func.GlFunctions;
-import org.lwjgl.opengl.GL15;
-import org.lwjgl.opengl.GL30;
+import org.lwjglx.opengl.GL15;
+import org.lwjglx.opengl.GL30;
 
 import java.util.Arrays;
 import java.util.EnumSet;

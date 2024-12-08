@@ -1,7 +1,7 @@
 package me.jellysquid.mods.sodium.client.render.chunk.backends.multidraw;
 
-import org.lwjgl.BufferUtils;
-import org.lwjgl.MemoryUtil;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.MemoryUtil;
 
 import java.nio.ByteBuffer;
 

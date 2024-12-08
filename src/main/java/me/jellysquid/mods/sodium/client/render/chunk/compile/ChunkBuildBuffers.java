@@ -22,7 +22,7 @@ import net.coderbot.iris.sodium.block_context.BlockContextHolder;
 import net.coderbot.iris.sodium.block_context.ChunkBuildBuffersExt;
 import net.coderbot.iris.sodium.block_context.ContextAwareVertexWriter;
 import net.minecraft.block.Block;
-import org.lwjgl.BufferUtils;
+import org.lwjglx.BufferUtils;
 
 import java.nio.ByteBuffer;
 import java.util.Map;

@@ -6,8 +6,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiSlot;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.input.Mouse;
+import org.lwjglx.opengl.GL11;
 
 // TODO: look into GuiListExtended & GuiSelectStringEntries
 public abstract class IrisGuiSlot extends GuiSlot {

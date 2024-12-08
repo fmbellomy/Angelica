@@ -6,7 +6,7 @@ package com.gtnewhorizons.angelica.compat.lwjgl;
 
 import static com.gtnewhorizons.angelica.compat.lwjgl.CompatMemoryUtil.NULL;
 import static com.gtnewhorizons.angelica.compat.lwjgl.CompatMemoryUtil.UNSAFE;
-import static org.lwjgl.LWJGLUtil.CHECKS;
+import static org.lwjglx.LWJGLUtil.CHECKS;
 
 import net.minecraft.util.Util;
 import org.jetbrains.annotations.Nullable;

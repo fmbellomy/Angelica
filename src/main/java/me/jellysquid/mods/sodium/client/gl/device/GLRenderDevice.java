@@ -12,9 +12,9 @@ import me.jellysquid.mods.sodium.client.gl.tessellation.GlPrimitiveType;
 import me.jellysquid.mods.sodium.client.gl.tessellation.GlTessellation;
 import me.jellysquid.mods.sodium.client.gl.tessellation.GlVertexArrayTessellation;
 import me.jellysquid.mods.sodium.client.gl.tessellation.TessellationBinding;
-import org.lwjgl.opengl.GL14;
-import org.lwjgl.opengl.GL15;
-import org.lwjgl.opengl.GL31;
+import org.lwjglx.opengl.GL14;
+import org.lwjglx.opengl.GL15;
+import org.lwjglx.opengl.GL31;
 
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;

@@ -20,11 +20,11 @@ import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
 import net.coderbot.iris.uniforms.SystemTimeUniforms;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.ARBShaderImageLoadStore;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GL30;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.opengl.ARBShaderImageLoadStore;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL20;
+import org.lwjglx.opengl.GL30;
 
 public class ProgramUniforms {
 	private static ProgramUniforms active;

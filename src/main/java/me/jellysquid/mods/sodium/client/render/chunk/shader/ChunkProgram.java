@@ -7,8 +7,8 @@ import me.jellysquid.mods.sodium.client.gl.shader.GlProgram;
 import me.jellysquid.mods.sodium.client.render.GameRendererContext;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL20;
+import org.lwjglx.opengl.GL13;
+import org.lwjglx.opengl.GL20;
 
 import java.util.function.Function;
 

@@ -60,7 +60,7 @@ import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.WorldEvent;
-import org.lwjgl.input.Keyboard;
+import org.lwjglx.input.Keyboard;
 
 public class ClientProxy extends CommonProxy {
 

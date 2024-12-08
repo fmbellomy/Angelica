@@ -13,7 +13,7 @@ import net.coderbot.iris.texture.pbr.loader.PBRTextureLoaderRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.AbstractTexture;
 import org.jetbrains.annotations.NotNull;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 public class PBRTextureManager {
 	public static final PBRTextureManager INSTANCE = new PBRTextureManager();

@@ -9,7 +9,7 @@ import net.coderbot.iris.shaderpack.CloudSetting;
 import net.coderbot.iris.uniforms.FrameUpdateNotifier;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.EntityRenderer;
-import org.lwjgl.opengl.GL20;
+import org.lwjglx.opengl.GL20;
 
 import java.util.List;
 import java.util.OptionalInt;

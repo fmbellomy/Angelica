@@ -33,7 +33,7 @@ import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.launchwrapper.Launch;
 import net.minecraft.util.ChatComponentText;
 import org.jetbrains.annotations.NotNull;
-import org.lwjgl.input.Keyboard;
+import org.lwjglx.input.Keyboard;
 
 import java.io.IOException;
 import java.io.InputStream;

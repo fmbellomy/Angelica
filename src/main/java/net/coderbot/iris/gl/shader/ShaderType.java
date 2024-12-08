@@ -2,9 +2,9 @@
 
 package net.coderbot.iris.gl.shader;
 
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GL32;
-import org.lwjgl.opengl.GL43;
+import org.lwjglx.opengl.GL20;
+import org.lwjglx.opengl.GL32;
+import org.lwjglx.opengl.GL43;
 
 /**
  * An enumeration over the supported OpenGL shader types.

@@ -1,5 +1,7 @@
 package com.gtnewhorizons.angelica.glsm;
 
+import static com.gtnewhorizons.angelica.loading.AngelicaTweaker.LOGGER;
+
 import com.gtnewhorizon.gtnhlib.client.renderer.stacks.IStateStack;
 import com.gtnewhorizon.gtnhlib.client.renderer.vbo.VBOManager;
 import com.gtnewhorizons.angelica.AngelicaMod;
@@ -33,6 +35,15 @@ import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntStack;
 import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
 import it.unimi.dsi.fastutil.objects.ObjectArraySet;
+import java.nio.ByteBuffer;
+import java.nio.DoubleBuffer;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+import java.nio.ShortBuffer;
+import java.util.AbstractMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.IntSupplier;
 import lombok.Getter;
 import lombok.Setter;
 import net.coderbot.iris.Iris;
@@ -50,32 +61,19 @@ import org.joml.Matrix4f;
 import org.joml.Matrix4fStack;
 import org.joml.Vector3d;
 import org.joml.Vector3f;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.LWJGLException;
-import org.lwjgl.opengl.ARBMultitexture;
-import org.lwjgl.opengl.ContextCapabilities;
-import org.lwjgl.opengl.Drawable;
-import org.lwjgl.opengl.EXTTextureFilterAnisotropic;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL14;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GLContext;
-import org.lwjgl.opengl.KHRDebug;
-
-import java.lang.Math;
-import java.nio.ByteBuffer;
-import java.nio.DoubleBuffer;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-import java.nio.ShortBuffer;
-import java.util.AbstractMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.function.IntSupplier;
-
-import static com.gtnewhorizons.angelica.loading.AngelicaTweaker.LOGGER;
+import org.lwjglx.opengl.EXTTextureFilterAnisotropic;
+import org.lwjglx.opengl.KHRDebug;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.LWJGLException;
+import org.lwjglx.opengl.ARBMultitexture;
+import org.lwjglx.opengl.ContextCapabilities;
+import org.lwjglx.opengl.Drawable;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL12;
+import org.lwjglx.opengl.GL13;
+import org.lwjglx.opengl.GL14;
+import org.lwjglx.opengl.GL20;
+import org.lwjglx.opengl.GLContext;
 
 @SuppressWarnings("unused") // Used in ASM
 public class GLStateManager {

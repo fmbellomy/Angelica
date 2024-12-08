@@ -3,7 +3,7 @@ package com.gtnewhorizons.angelica.glsm.stacks;
 import com.gtnewhorizon.gtnhlib.client.renderer.stacks.IStateStack;
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import com.gtnewhorizons.angelica.glsm.states.BooleanState;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 public class BooleanStateStack extends BooleanState implements IStateStack<BooleanStateStack> {
 

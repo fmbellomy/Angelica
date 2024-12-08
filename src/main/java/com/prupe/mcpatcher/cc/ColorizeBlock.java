@@ -12,7 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
 
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;

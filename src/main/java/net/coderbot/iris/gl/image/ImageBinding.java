@@ -1,7 +1,7 @@
 package net.coderbot.iris.gl.image;
 
 import com.gtnewhorizons.angelica.glsm.RenderSystem;
-import org.lwjgl.opengl.GL15;
+import org.lwjglx.opengl.GL15;
 
 import java.util.function.IntSupplier;
 

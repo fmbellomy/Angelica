@@ -1,7 +1,7 @@
 package me.jellysquid.mods.sodium.client.gl.shader;
 
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GL32;
+import org.lwjglx.opengl.GL20;
+import org.lwjglx.opengl.GL32;
 
 /**
  * An enumeration over the supported OpenGL shader types.

@@ -1,8 +1,8 @@
 package com.gtnewhorizons.angelica.util;
 
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.opengl.GL11;
 
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;

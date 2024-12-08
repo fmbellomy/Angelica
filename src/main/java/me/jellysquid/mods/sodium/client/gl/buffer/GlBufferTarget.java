@@ -1,8 +1,8 @@
 package me.jellysquid.mods.sodium.client.gl.buffer;
 
-import org.lwjgl.opengl.GL15;
-import org.lwjgl.opengl.GL31;
-import org.lwjgl.opengl.GL40;
+import org.lwjglx.opengl.GL15;
+import org.lwjglx.opengl.GL31;
+import org.lwjglx.opengl.GL40;
 
 public enum GlBufferTarget {
     ARRAY_BUFFER(GL15.GL_ARRAY_BUFFER, GL15.GL_ARRAY_BUFFER_BINDING),

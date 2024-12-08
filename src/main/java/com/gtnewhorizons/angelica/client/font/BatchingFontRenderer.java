@@ -10,8 +10,8 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.opengl.GL11;
 
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;

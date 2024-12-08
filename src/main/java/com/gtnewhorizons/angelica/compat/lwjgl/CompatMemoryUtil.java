@@ -9,7 +9,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
-import org.lwjgl.BufferUtils;
+import org.lwjglx.BufferUtils;
 
 /**
  * Backported from LWJGL3 under the BSD 3-Clause "New" or "Revised" License license

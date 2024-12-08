@@ -5,21 +5,17 @@
 
 package com.gtnewhorizons.angelica.glsm;
 
-import org.lwjgl.opengl.AMDDebugOutput;
-import org.lwjgl.opengl.AMDDebugOutputCallback;
-import org.lwjgl.opengl.ARBDebugOutput;
-import org.lwjgl.opengl.ARBDebugOutputCallback;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL30;
-import org.lwjgl.opengl.GL43;
-import org.lwjgl.opengl.KHRDebug;
-import org.lwjgl.opengl.KHRDebugCallback;
+import static com.gtnewhorizons.angelica.loading.AngelicaTweaker.LOGGER;
 
 import java.io.PrintStream;
 import java.util.function.Consumer;
-
-import static com.gtnewhorizons.angelica.loading.AngelicaTweaker.LOGGER;
-import static org.lwjgl.opengl.ARBDebugOutput.glDebugMessageCallbackARB;
+import org.lwjglx.opengl.AMDDebugOutput;
+import org.lwjglx.opengl.ARBDebugOutput;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL30;
+import org.lwjglx.opengl.GL43;
+import org.lwjglx.opengl.KHRDebug;
+import org.lwjglx.opengl.KHRDebugCallback;
 
 public final class GLDebug {
     /**
@@ -105,7 +101,7 @@ public final class GLDebug {
                 return 2;
             }
             return 1;
-        } else if (GLStateManager.capabilities.GL_ARB_debug_output) {
+        /*} else if (GLStateManager.capabilities.GL_ARB_debug_output) {
             LOGGER.info("[GL] Using ARB_debug_output for error logging.");
             ARBDebugOutputCallback proc = new ARBDebugOutputCallback((source, type, id, severity, message) -> {
                 stream.println("[LWJGL] ARB_debug_output message");
@@ -137,7 +133,7 @@ public final class GLDebug {
             AMDDebugOutput.glDebugMessageEnableAMD(0, GL43.GL_DEBUG_SEVERITY_LOW, null, false);
             AMDDebugOutput.glDebugMessageEnableAMD(0, GL43.GL_DEBUG_SEVERITY_NOTIFICATION, null, false);
             AMDDebugOutput.glDebugMessageCallbackAMD(proc);
-            return 1;
+            return 1;*/
         } else {
             LOGGER.info("[GL] No debug output implementation is available, cannot return debug info.");
             return 0;
@@ -154,12 +150,12 @@ public final class GLDebug {
                 GL11.glDisable(GL43.GL_DEBUG_OUTPUT);
 			}
 			return 1;
-		} else if (GLStateManager.capabilities.GL_ARB_debug_output) {
+		/*} else if (GLStateManager.capabilities.GL_ARB_debug_output) {
 			glDebugMessageCallbackARB(null);
 			return 1;
 		} else if (GLStateManager.capabilities.GL_AMD_debug_output) {
 			AMDDebugOutput.glDebugMessageCallbackAMD(null);
-			return 1;
+			return 1;*/
 		} else {
 			LOGGER.info("[GL] No debug output implementation is available, cannot disable debug info.");
 			return 0;

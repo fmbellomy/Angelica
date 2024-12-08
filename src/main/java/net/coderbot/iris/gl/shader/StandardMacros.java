@@ -8,9 +8,9 @@ import net.coderbot.iris.pipeline.WorldRenderingPhase;
 import net.coderbot.iris.shaderpack.StringPair;
 import net.coderbot.iris.texture.format.TextureFormat;
 import net.coderbot.iris.texture.format.TextureFormatLoader;
-import org.lwjgl.LWJGLUtil;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL20;
+import org.lwjglx.LWJGLUtil;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL20;
 
 import java.util.ArrayList;
 import java.util.Arrays;

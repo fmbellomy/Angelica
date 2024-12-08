@@ -4,9 +4,9 @@ import com.gtnewhorizons.angelica.AngelicaExtension;
 import org.joml.Vector3f;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL12;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

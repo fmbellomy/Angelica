@@ -5,7 +5,7 @@ import net.minecraft.client.particle.EntityFireworkOverlayFX;
 import net.minecraft.client.particle.EntityFireworkSparkFX;
 import net.minecraft.util.ResourceLocation;
 
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.mal.resource.BlendMethod;

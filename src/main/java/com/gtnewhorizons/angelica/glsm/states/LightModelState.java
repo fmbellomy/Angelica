@@ -3,8 +3,8 @@ package com.gtnewhorizons.angelica.glsm.states;
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import org.joml.Vector4f;
 import org.joml.Vector4i;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL12;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;

@@ -3,7 +3,7 @@ package net.coderbot.iris.texture.pbr.loader;
 import net.minecraft.client.renderer.texture.AbstractTexture;
 import net.minecraft.client.resources.IResourceManager;
 import org.jetbrains.annotations.NotNull;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 public interface PBRTextureLoader<T extends AbstractTexture> {
 	/**

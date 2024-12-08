@@ -10,7 +10,7 @@ import me.jellysquid.mods.sodium.client.util.Dim2i;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;

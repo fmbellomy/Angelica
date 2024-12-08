@@ -4,9 +4,9 @@ package net.coderbot.iris.postprocess;
 import com.gtnewhorizon.gtnhlib.client.renderer.vertex.DefaultVertexFormat;
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import com.gtnewhorizons.angelica.glsm.RenderSystem;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL15;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL15;
 
 import java.nio.FloatBuffer;
 

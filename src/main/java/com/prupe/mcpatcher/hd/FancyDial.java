@@ -21,13 +21,13 @@ import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.EXTFramebufferObject;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GLContext;
-import org.lwjgl.util.glu.GLU;
+import org.lwjglx.input.Keyboard;
+import org.lwjglx.opengl.EXTFramebufferObject;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL12;
+import org.lwjglx.opengl.GL13;
+import org.lwjglx.opengl.GLContext;
+import org.lwjglx.util.glu.GLU;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;

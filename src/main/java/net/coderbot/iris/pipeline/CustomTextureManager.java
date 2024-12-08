@@ -22,7 +22,7 @@ import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.io.FilenameUtils;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import java.io.IOException;
 import java.util.ArrayList;

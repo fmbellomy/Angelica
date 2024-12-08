@@ -14,8 +14,8 @@ import cpw.mods.fml.common.eventhandler.EventPriority;
 import net.dries007.holoInventory.client.Renderer;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.event.world.WorldEvent;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL30;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL30;
 
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
 

@@ -2,9 +2,9 @@ package me.jellysquid.mods.sodium.client.gl.func;
 
 import java.nio.ByteBuffer;
 
-import org.lwjgl.opengl.ARBMultiDrawIndirect;
-import org.lwjgl.opengl.ContextCapabilities;
-import org.lwjgl.opengl.GL43;
+import org.lwjglx.opengl.ARBMultiDrawIndirect;
+import org.lwjglx.opengl.ContextCapabilities;
+import org.lwjglx.opengl.GL43;
 
 public enum GlIndirectMultiDrawFunctions {
     CORE {

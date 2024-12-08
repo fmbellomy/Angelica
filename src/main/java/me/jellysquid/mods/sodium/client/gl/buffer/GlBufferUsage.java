@@ -1,6 +1,6 @@
 package me.jellysquid.mods.sodium.client.gl.buffer;
 
-import org.lwjgl.opengl.GL15;
+import org.lwjglx.opengl.GL15;
 
 public enum GlBufferUsage {
     GL_STREAM_DRAW(GL15.GL_STREAM_DRAW),

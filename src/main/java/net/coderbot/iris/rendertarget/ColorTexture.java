@@ -4,9 +4,9 @@ import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import com.gtnewhorizons.angelica.glsm.RenderSystem;
 import net.coderbot.iris.gl.GlResource;
 import net.coderbot.iris.gl.texture.TextureUploadHelper;
-import org.lwjgl.opengl.EXTFramebufferObject;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
+import org.lwjglx.opengl.EXTFramebufferObject;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL12;
 
 import java.nio.ByteBuffer;
 

@@ -3,7 +3,7 @@ package com.gtnewhorizons.angelica.glsm.states;
 import lombok.Getter;
 import lombok.Setter;
 import org.joml.Vector3d;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import java.nio.FloatBuffer;
 

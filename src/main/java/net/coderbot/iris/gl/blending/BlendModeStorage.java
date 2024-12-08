@@ -4,8 +4,8 @@ import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import com.gtnewhorizons.angelica.glsm.RenderSystem;
 import com.gtnewhorizons.angelica.glsm.states.BlendState;
 import lombok.Getter;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL14;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL14;
 
 public class BlendModeStorage {
 	private static boolean originalBlendEnable;

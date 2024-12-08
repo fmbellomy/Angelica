@@ -5,7 +5,7 @@ import me.jellysquid.mods.sodium.client.gui.options.control.ControlValueFormatte
 import me.jellysquid.mods.sodium.client.util.Dim2i;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.MathHelper;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 public class SliderControlElement extends NotFineControlElement<Integer> {
     private final ControlValueFormatter formatter;

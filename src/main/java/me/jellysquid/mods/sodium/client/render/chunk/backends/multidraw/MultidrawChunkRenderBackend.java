@@ -40,7 +40,7 @@ import net.coderbot.iris.block_rendering.BlockRenderingSettings;
 import net.coderbot.iris.sodium.IrisChunkShaderBindingPoints;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Util;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;

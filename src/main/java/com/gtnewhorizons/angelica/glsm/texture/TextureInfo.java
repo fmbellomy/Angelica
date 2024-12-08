@@ -3,7 +3,7 @@ package com.gtnewhorizons.angelica.glsm.texture;
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import lombok.Getter;
 import lombok.Setter;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 public class TextureInfo {
 

@@ -1,7 +1,7 @@
 package net.coderbot.iris.gl.blending;
 
 import net.coderbot.iris.Iris;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import java.util.Optional;
 

@@ -6,9 +6,9 @@ import net.coderbot.iris.gl.GlResource;
 import net.coderbot.iris.pipeline.WorldRenderingPipeline;
 import org.joml.Vector2f;
 import org.joml.Vector3i;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GL43;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.opengl.GL20;
+import org.lwjglx.opengl.GL43;
 
 import java.nio.IntBuffer;
 

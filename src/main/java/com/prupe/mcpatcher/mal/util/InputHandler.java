@@ -2,7 +2,7 @@ package com.prupe.mcpatcher.mal.util;
 
 import java.util.BitSet;
 
-import org.lwjgl.input.Keyboard;
+import org.lwjglx.input.Keyboard;
 
 public class InputHandler {
 

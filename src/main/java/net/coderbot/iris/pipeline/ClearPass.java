@@ -3,7 +3,7 @@ package net.coderbot.iris.pipeline;
 import net.coderbot.iris.gl.framebuffer.GlFramebuffer;
 import net.minecraft.client.Minecraft;
 import org.joml.Vector4f;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import java.util.Objects;
 import java.util.function.IntSupplier;

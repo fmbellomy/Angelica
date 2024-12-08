@@ -2,7 +2,7 @@ package me.jellysquid.mods.sodium.client.gl.compat;
 
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import me.jellysquid.mods.sodium.client.render.chunk.shader.ChunkFogMode;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 public class FogHelper {
     private static final float FAR_PLANE_THRESHOLD_EXP = (float) Math.log(1.0f / 0.0019f);

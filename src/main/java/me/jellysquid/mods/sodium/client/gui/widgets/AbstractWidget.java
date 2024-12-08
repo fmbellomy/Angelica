@@ -8,7 +8,7 @@ import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import java.util.function.Consumer;
 

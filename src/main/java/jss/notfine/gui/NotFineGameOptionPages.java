@@ -28,7 +28,7 @@ import net.coderbot.iris.gui.option.IrisVideoSettings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.GameSettings;
-import org.lwjgl.opengl.Display;
+import org.lwjglx.opengl.Display;
 
 import java.io.IOException;
 import java.util.ArrayList;

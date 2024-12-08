@@ -8,8 +8,8 @@ import net.coderbot.iris.shaderpack.DimensionId;
 import net.coderbot.iris.uniforms.SystemTimeUniforms;
 import net.minecraft.client.Minecraft;
 import org.jetbrains.annotations.Nullable;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL13;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL13;
 
 import java.util.HashMap;
 import java.util.Map;

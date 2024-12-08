@@ -2,7 +2,7 @@ package com.gtnewhorizons.angelica.client.gui;
 
 import com.gtnewhorizons.angelica.compat.mojang.Element;
 import net.minecraft.client.gui.GuiScreen;
-import org.lwjgl.input.Mouse;
+import org.lwjglx.input.Mouse;
 
 import java.util.List;
 

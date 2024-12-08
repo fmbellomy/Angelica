@@ -1,8 +1,8 @@
 package com.prupe.mcpatcher.mal.resource;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL14;
-import org.lwjgl.opengl.GLContext;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL14;
+import org.lwjglx.opengl.GLContext;
 
 public class GLAPI {
 

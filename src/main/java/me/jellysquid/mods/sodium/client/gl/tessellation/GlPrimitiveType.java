@@ -1,6 +1,6 @@
 package me.jellysquid.mods.sodium.client.gl.tessellation;
 
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 public enum GlPrimitiveType {
     LINES(GL11.GL_LINES),

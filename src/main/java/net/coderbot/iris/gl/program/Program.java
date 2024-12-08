@@ -1,7 +1,7 @@
 package net.coderbot.iris.gl.program;
 
 import net.coderbot.iris.gl.GlResource;
-import org.lwjgl.opengl.GL20;
+import org.lwjglx.opengl.GL20;
 
 public final class Program extends GlResource {
 	private final ProgramUniforms uniforms;

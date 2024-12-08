@@ -15,8 +15,8 @@ import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
 import net.coderbot.iris.uniforms.SystemTimeUniforms;
 import net.minecraft.client.Minecraft;
 import org.apache.commons.io.IOUtils;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL12;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

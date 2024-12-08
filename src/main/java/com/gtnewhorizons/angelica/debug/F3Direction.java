@@ -5,7 +5,7 @@ import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 public class F3Direction {
     public static void renderWorldDirectionsEvent(Minecraft mc, RenderGameOverlayEvent.Pre event) {

@@ -1,9 +1,9 @@
 package net.coderbot.iris.gl.texture;
 
 import net.coderbot.iris.gl.GlVersion;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.opengl.GL30;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL12;
+import org.lwjglx.opengl.GL30;
 
 import java.util.Optional;
 

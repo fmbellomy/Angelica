@@ -66,9 +66,9 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3d;
 import org.joml.Vector4f;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL30;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL13;
+import org.lwjglx.opengl.GL30;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,9 +1,9 @@
 package net.coderbot.iris.gl.texture;
 
 import org.jetbrains.annotations.Nullable;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL14;
-import org.lwjgl.opengl.GL30;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL14;
+import org.lwjglx.opengl.GL30;
 
 public enum DepthBufferFormat {
 	DEPTH(false),

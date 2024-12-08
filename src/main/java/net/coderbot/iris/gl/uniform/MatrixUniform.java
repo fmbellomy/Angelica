@@ -2,7 +2,7 @@ package net.coderbot.iris.gl.uniform;
 
 import com.gtnewhorizons.angelica.glsm.RenderSystem;
 import org.joml.Matrix4f;
-import org.lwjgl.BufferUtils;
+import org.lwjglx.BufferUtils;
 
 import java.nio.FloatBuffer;
 import java.util.function.Supplier;

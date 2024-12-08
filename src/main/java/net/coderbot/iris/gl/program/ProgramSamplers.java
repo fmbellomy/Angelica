@@ -10,7 +10,7 @@ import net.coderbot.iris.gl.sampler.SamplerHolder;
 import net.coderbot.iris.gl.sampler.SamplerLimits;
 import net.coderbot.iris.gl.state.ValueUpdateNotifier;
 import net.coderbot.iris.shaderpack.PackRenderTargetDirectives;
-import org.lwjgl.opengl.GL13;
+import org.lwjglx.opengl.GL13;
 
 import java.util.ArrayList;
 import java.util.List;

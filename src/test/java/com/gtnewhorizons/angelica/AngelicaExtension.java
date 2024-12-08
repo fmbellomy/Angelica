@@ -5,11 +5,11 @@ import com.gtnewhorizons.angelica.glsm.RenderSystem;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import org.lwjgl.LWJGLException;
-import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.PixelFormat;
+import org.lwjglx.LWJGLException;
+import org.lwjglx.opengl.Display;
+import org.lwjglx.opengl.DisplayMode;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.PixelFormat;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.extension.ExtensionContext.Namespace.GLOBAL;

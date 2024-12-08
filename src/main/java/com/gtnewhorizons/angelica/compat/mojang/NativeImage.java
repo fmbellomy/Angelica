@@ -10,8 +10,8 @@ import java.nio.IntBuffer;
 import javax.imageio.ImageIO;
 import lombok.Getter;
 import net.coderbot.iris.Iris;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL12;
 
 // TBD
 public class NativeImage extends BufferedImage {

@@ -20,8 +20,8 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.Arrays;
 import org.jetbrains.annotations.Nullable;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.MemoryUtil;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.MemoryUtil;
 
 /**
  * An off-heap memory stack.

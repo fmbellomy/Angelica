@@ -2,7 +2,7 @@ package me.jellysquid.mods.sodium.client.model.vertex.buffer;
 
 import com.gtnewhorizons.angelica.compat.lwjgl.CompatMemoryUtil;
 import me.jellysquid.mods.sodium.client.gl.attribute.BufferVertexFormat;
-import org.lwjgl.BufferUtils;
+import org.lwjglx.BufferUtils;
 
 import java.nio.ByteBuffer;
 

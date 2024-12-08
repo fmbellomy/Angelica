@@ -1,7 +1,7 @@
 package me.jellysquid.mods.sodium.client.gl.func;
 
-import org.lwjgl.opengl.ContextCapabilities;
-import org.lwjgl.opengl.GLContext;
+import org.lwjglx.opengl.ContextCapabilities;
+import org.lwjglx.opengl.GLContext;
 
 public class GlFunctions {
     private static final ContextCapabilities capabilities = GLContext.getCapabilities();

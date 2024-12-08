@@ -5,7 +5,7 @@ import net.coderbot.iris.texture.mipmap.CustomMipmapGenerator;
 import net.coderbot.iris.texture.pbr.PBRType;
 import net.minecraft.client.renderer.texture.AbstractTexture;
 import org.jetbrains.annotations.Nullable;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import java.util.ArrayList;
 import java.util.List;

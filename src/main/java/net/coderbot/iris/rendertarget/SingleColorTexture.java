@@ -4,8 +4,8 @@ import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import com.gtnewhorizons.angelica.glsm.RenderSystem;
 import net.coderbot.iris.gl.GlResource;
 import net.coderbot.iris.gl.texture.TextureUploadHelper;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.opengl.GL11;
 
 import java.nio.ByteBuffer;
 

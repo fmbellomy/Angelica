@@ -4,8 +4,8 @@ import com.google.common.collect.ImmutableSet;
 import com.gtnewhorizon.gtnhlib.client.renderer.stacks.IStateStack;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL13;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL13;
 
 import java.util.Collections;
 import java.util.HashMap;

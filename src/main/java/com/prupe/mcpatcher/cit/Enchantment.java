@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import com.prupe.mcpatcher.mal.resource.BlendMethod;
 import com.prupe.mcpatcher.mal.resource.PropertiesFile;

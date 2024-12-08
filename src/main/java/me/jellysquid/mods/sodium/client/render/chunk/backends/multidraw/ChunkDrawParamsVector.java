@@ -2,7 +2,7 @@ package me.jellysquid.mods.sodium.client.render.chunk.backends.multidraw;
 
 import com.gtnewhorizons.angelica.compat.lwjgl.CompatMemoryUtil;
 import me.jellysquid.mods.sodium.client.SodiumClientMod;
-import org.lwjgl.MemoryUtil;
+import org.lwjglx.MemoryUtil;
 
 import java.nio.ByteBuffer;
 

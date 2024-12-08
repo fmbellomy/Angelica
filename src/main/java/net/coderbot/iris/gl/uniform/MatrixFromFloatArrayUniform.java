@@ -1,7 +1,7 @@
 package net.coderbot.iris.gl.uniform;
 
 import com.gtnewhorizons.angelica.glsm.RenderSystem;
-import org.lwjgl.BufferUtils;
+import org.lwjglx.BufferUtils;
 
 import java.nio.FloatBuffer;
 import java.util.Arrays;

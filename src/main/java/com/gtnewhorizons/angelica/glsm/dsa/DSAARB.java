@@ -1,8 +1,8 @@
 package com.gtnewhorizons.angelica.glsm.dsa;
 
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
-import org.lwjgl.opengl.ARBDirectStateAccess;
-import org.lwjgl.opengl.GL45;
+import org.lwjglx.opengl.ARBDirectStateAccess;
+import org.lwjglx.opengl.GL45;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;

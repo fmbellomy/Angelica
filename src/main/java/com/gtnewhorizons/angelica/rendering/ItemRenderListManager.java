@@ -29,8 +29,7 @@ import com.gtnewhorizons.angelica.config.AngelicaConfig;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.val;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.resources.IResourceManager;
@@ -53,17 +52,17 @@ public class ItemRenderListManager implements IResourceManagerReloadListener {
     public boolean pre(float a, float b, float c, float d, int e, int f, float g) {
         prop.set(a, b, c, d, e, f, g);
         if (theMap.containsKey(prop)) {
-            val list = theMap.get(prop);
+            var list = theMap.get(prop);
             propList.add(propList.remove(propList.indexOf(prop)));
             GL11.glCallList(list);
             return true;
         } else {
             if (propList.size() >= AngelicaConfig.itemRendererDisplayListCacheSize) {
-                val oldProp = propList.remove(0);
+                var oldProp = propList.remove(0);
                 GLAllocation.deleteDisplayLists(theMap.remove(oldProp));
             }
             list = GLAllocation.generateDisplayLists(1);
-            val newProp = new ItemProp(prop);
+            var newProp = new ItemProp(prop);
             theMap.put(newProp, list);
             propList.add(newProp);
             GL11.glNewList(list, GL11.GL_COMPILE);

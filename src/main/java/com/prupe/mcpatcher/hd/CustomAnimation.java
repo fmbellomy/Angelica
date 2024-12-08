@@ -11,8 +11,8 @@ import java.util.Set;
 
 import net.minecraft.util.ResourceLocation;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.glu.GLU;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.util.glu.GLU;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;

@@ -3,8 +3,8 @@ package net.coderbot.iris.gl.texture;
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import com.gtnewhorizons.angelica.glsm.RenderSystem;
 import net.coderbot.iris.gl.framebuffer.GlFramebuffer;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL43;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL43;
 
 public interface DepthCopyStrategy {
 	// FB -> T

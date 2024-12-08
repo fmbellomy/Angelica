@@ -16,7 +16,7 @@ import me.jellysquid.mods.sodium.client.render.chunk.lists.ChunkRenderListIterat
 import me.jellysquid.mods.sodium.client.render.chunk.passes.BlockRenderPass;
 import me.jellysquid.mods.sodium.client.render.chunk.shader.ChunkRenderShaderBackend;
 import me.jellysquid.mods.sodium.client.render.chunk.shader.ChunkShaderBindingPoints;
-import org.lwjgl.opengl.GL20;
+import org.lwjglx.opengl.GL20;
 
 import java.util.Iterator;
 

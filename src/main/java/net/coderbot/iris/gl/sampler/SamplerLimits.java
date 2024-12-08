@@ -1,7 +1,7 @@
 package net.coderbot.iris.gl.sampler;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL20;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL20;
 
 public class SamplerLimits {
 	private final int maxTextureUnits;

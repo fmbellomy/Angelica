@@ -1,6 +1,6 @@
 package net.coderbot.iris.gl.texture;
 
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 public class TextureUploadHelper {
 	private TextureUploadHelper() {

@@ -8,7 +8,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL14;
+import org.lwjglx.opengl.GL14;
 
 /**
  * Class serving as abstraction and

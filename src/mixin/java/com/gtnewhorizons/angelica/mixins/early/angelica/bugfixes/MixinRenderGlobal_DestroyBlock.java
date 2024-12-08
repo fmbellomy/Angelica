@@ -8,7 +8,7 @@ import com.llamalad7.mixinextras.sugar.ref.LocalIntRef;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.EntityLivingBase;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

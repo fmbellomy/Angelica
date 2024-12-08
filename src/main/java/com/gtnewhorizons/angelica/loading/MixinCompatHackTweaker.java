@@ -1,11 +1,21 @@
 package com.gtnewhorizons.angelica.loading;
 
+import static com.gtnewhorizons.angelica.loading.AngelicaTweaker.LOGGER;
+
 import com.gtnewhorizons.angelica.config.AngelicaConfig;
+import com.gtnewhorizons.angelica.transform.ATAtHome;
 import com.gtnewhorizons.angelica.transform.BlockTransformer;
 import com.gtnewhorizons.angelica.transform.RedirectorTransformer;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.CoreModManager;
 import cpw.mods.fml.relauncher.FMLLaunchHandler;
+import java.io.File;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import net.minecraft.launchwrapper.IClassTransformer;
 import net.minecraft.launchwrapper.ITweaker;
 import net.minecraft.launchwrapper.Launch;
@@ -14,16 +24,6 @@ import org.spongepowered.asm.launch.platform.MixinContainer;
 import org.spongepowered.asm.launch.platform.MixinPlatformManager;
 import org.spongepowered.asm.launch.platform.container.IContainerHandle;
 import org.spongepowered.asm.mixin.transformer.Config;
-
-import java.io.File;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import static com.gtnewhorizons.angelica.loading.AngelicaTweaker.LOGGER;
 
 public class MixinCompatHackTweaker implements ITweaker {
     public static final boolean DISABLE_OPTIFINE_FASTCRAFT_BETTERFPS = true;
@@ -177,6 +177,7 @@ public class MixinCompatHackTweaker implements ITweaker {
             }
             if(AngelicaConfig.enableSodium) {
                 Launch.classLoader.registerTransformer(BlockTransformer.class.getName());
+                Launch.classLoader.registerTransformer(ATAtHome.class.getName());
             }
         }
 

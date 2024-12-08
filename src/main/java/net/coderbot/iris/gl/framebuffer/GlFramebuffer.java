@@ -9,9 +9,9 @@ import java.nio.IntBuffer;
 import net.coderbot.iris.gl.GlResource;
 import net.coderbot.iris.gl.texture.DepthBufferFormat;
 import net.minecraft.client.renderer.OpenGlHelper;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GL30;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL20;
+import org.lwjglx.opengl.GL30;
 
 public class GlFramebuffer extends GlResource {
 	private final Int2IntMap attachments;

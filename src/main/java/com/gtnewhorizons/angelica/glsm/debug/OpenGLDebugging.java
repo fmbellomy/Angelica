@@ -14,8 +14,8 @@ import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.joml.Matrix4f;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.opengl.GL11;
 
 // Adapted from https://github.com/makamys/CoreTweaks/blob/master/src/main/java/makamys/coretweaks/util/OpenGLDebugging.java;
 // originally from https://github.com/TheGreyGhost/MinecraftByExample/blob/1-8final/src/main/java/minecraftbyexample/usefultools/OpenGLdebugging.java

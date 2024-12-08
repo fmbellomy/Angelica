@@ -15,8 +15,8 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ChatAllowedCharacters;
 import net.minecraft.util.MathHelper;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.input.Keyboard;
+import org.lwjglx.opengl.GL11;
 
 import java.util.List;
 import java.util.Objects;

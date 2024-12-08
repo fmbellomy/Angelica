@@ -2,7 +2,7 @@ package net.coderbot.iris.rendertarget;
 
 import com.gtnewhorizons.angelica.compat.mojang.NativeImage;
 import net.minecraft.client.renderer.texture.DynamicTexture;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import java.util.Random;
 

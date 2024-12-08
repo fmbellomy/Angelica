@@ -4,12 +4,12 @@ import com.gtnewhorizons.angelica.AngelicaExtension;
 import com.gtnewhorizons.angelica.util.GLBit;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL14;
-import org.lwjgl.opengl.GL20;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL12;
+import org.lwjglx.opengl.GL13;
+import org.lwjglx.opengl.GL14;
+import org.lwjglx.opengl.GL20;
 
 import java.nio.FloatBuffer;
 import java.util.ArrayList;

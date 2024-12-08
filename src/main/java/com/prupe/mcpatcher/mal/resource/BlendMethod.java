@@ -5,7 +5,7 @@ import java.util.Set;
 
 import net.minecraft.util.ResourceLocation;
 
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import com.prupe.mcpatcher.MCPatcherUtils;
 

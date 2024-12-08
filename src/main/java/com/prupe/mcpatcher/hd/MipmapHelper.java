@@ -1,25 +1,20 @@
 package com.prupe.mcpatcher.hd;
 
-import java.math.BigInteger;
-import java.nio.IntBuffer;
-import java.util.HashMap;
-import java.util.Map;
-
-import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.EXTTextureFilterAnisotropic;
-import org.lwjgl.opengl.EXTTextureLODBias;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.opengl.GLContext;
-import org.lwjgl.util.glu.GLU;
-
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.mal.resource.GLAPI;
 import com.prupe.mcpatcher.mal.resource.PropertiesFile;
 import com.prupe.mcpatcher.mal.resource.TexturePackAPI;
-
+import java.math.BigInteger;
+import java.nio.IntBuffer;
+import java.util.HashMap;
+import java.util.Map;
 import jss.notfine.config.MCPatcherForgeConfig;
+import net.minecraft.util.ResourceLocation;
+import org.lwjglx.opengl.EXTTextureFilterAnisotropic;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL12;
+import org.lwjglx.opengl.GLContext;
+import org.lwjglx.util.glu.GLU;
 
 public class MipmapHelper {
 
@@ -58,7 +53,7 @@ public class MipmapHelper {
             anisoMax = anisoLevel = 1;
         }
 
-        lodSupported = GLContext.getCapabilities().GL_EXT_texture_lod_bias;
+        lodSupported = GLContext.getCapabilities().GL_EXT_texture_lod_bias && false;
         if (lodSupported) {
             lodBias = MCPatcherForgeConfig.ExtendedHD.lodBias;
         } else {
@@ -86,13 +81,13 @@ public class MipmapHelper {
                     anisoLevel);
                 checkGLError("%s: set GL_TEXTURE_MAX_ANISOTROPY_EXT = %f", textureName, anisoLevel);
             }
-            if (lodSupported) {
+            /*if (lodSupported) {
                 GL11.glTexEnvi(
                     EXTTextureLODBias.GL_TEXTURE_FILTER_CONTROL_EXT,
                     EXTTextureLODBias.GL_TEXTURE_LOD_BIAS_EXT,
                     lodBias);
                 checkGLError("%s: set GL_TEXTURE_LOD_BIAS_EXT = %d", textureName, lodBias);
-            }
+            }*/
         }
         GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, minFilter);
         GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, magFilter);

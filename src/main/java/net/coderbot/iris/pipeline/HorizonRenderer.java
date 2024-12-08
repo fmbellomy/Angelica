@@ -7,7 +7,7 @@ import com.gtnewhorizon.gtnhlib.client.renderer.vertex.DefaultVertexFormat;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import java.nio.FloatBuffer;
 

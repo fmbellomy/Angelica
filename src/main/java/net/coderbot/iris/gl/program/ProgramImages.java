@@ -6,7 +6,7 @@ import net.coderbot.iris.gl.image.ImageBinding;
 import net.coderbot.iris.gl.image.ImageHolder;
 import net.coderbot.iris.gl.image.ImageLimits;
 import net.coderbot.iris.gl.texture.InternalTextureFormat;
-import org.lwjgl.opengl.GL20;
+import org.lwjglx.opengl.GL20;
 
 import java.util.ArrayList;
 import java.util.List;

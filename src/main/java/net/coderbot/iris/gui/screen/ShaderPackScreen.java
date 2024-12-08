@@ -18,9 +18,9 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import org.jetbrains.annotations.Nullable;
-import org.lwjgl.Sys;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
+import org.lwjglx.Sys;
+import org.lwjglx.input.Keyboard;
+import org.lwjglx.input.Mouse;
 
 import java.io.File;
 import java.io.IOException;

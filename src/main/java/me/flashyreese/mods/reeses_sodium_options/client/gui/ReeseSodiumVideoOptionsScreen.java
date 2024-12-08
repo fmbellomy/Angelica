@@ -21,7 +21,7 @@ import net.irisshaders.iris.api.v0.IrisApi;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import org.jetbrains.annotations.Nullable;
-import org.lwjgl.input.Keyboard;
+import org.lwjglx.input.Keyboard;
 
 import java.util.EnumSet;
 import java.util.HashSet;

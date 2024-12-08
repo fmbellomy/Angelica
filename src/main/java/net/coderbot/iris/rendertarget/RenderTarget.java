@@ -8,9 +8,9 @@ import net.coderbot.iris.gl.texture.InternalTextureFormat;
 import net.coderbot.iris.gl.texture.PixelFormat;
 import net.coderbot.iris.gl.texture.PixelType;
 import org.joml.Vector2i;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL12;
 
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;

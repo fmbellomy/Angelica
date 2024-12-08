@@ -15,7 +15,7 @@ import me.jellysquid.mods.sodium.client.render.chunk.passes.BlockRenderPass;
 import me.jellysquid.mods.sodium.client.render.pipeline.context.ChunkRenderCacheLocal;
 import me.jellysquid.mods.sodium.client.util.task.CancellationSource;
 import org.joml.Vector3d;
-import org.lwjgl.BufferUtils;
+import org.lwjglx.BufferUtils;
 
 import java.nio.ByteBuffer;
 import java.util.Arrays;

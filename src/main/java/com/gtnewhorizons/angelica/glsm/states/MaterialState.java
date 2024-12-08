@@ -5,7 +5,7 @@ import org.joml.Vector3f;
 import org.joml.Vector3i;
 import org.joml.Vector4f;
 import org.joml.Vector4i;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;

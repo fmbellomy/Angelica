@@ -9,7 +9,7 @@ import com.gtnewhorizons.angelica.loading.AngelicaTweaker;
 import cpw.mods.fml.client.SplashProgress;
 import net.minecraft.client.gui.FontRenderer;
 import org.apache.commons.lang3.StringUtils;
-import org.lwjgl.opengl.Display;
+import org.lwjglx.opengl.Display;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -20,13 +20,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.lang.reflect.Field;
 
-import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
-import static org.lwjgl.opengl.GL11.glDisable;
-import static org.lwjgl.opengl.GL11.glEnable;
-import static org.lwjgl.opengl.GL11.glPopMatrix;
-import static org.lwjgl.opengl.GL11.glPushMatrix;
-import static org.lwjgl.opengl.GL11.glScalef;
-import static org.lwjgl.opengl.GL11.glTranslatef;
+import static org.lwjglx.opengl.GL11.GL_TEXTURE_2D;
+import static org.lwjglx.opengl.GL11.glDisable;
+import static org.lwjglx.opengl.GL11.glEnable;
+import static org.lwjglx.opengl.GL11.glPopMatrix;
+import static org.lwjglx.opengl.GL11.glPushMatrix;
+import static org.lwjglx.opengl.GL11.glScalef;
+import static org.lwjglx.opengl.GL11.glTranslatef;
 
 @SuppressWarnings("deprecation")
 @Mixin(targets = { "cpw/mods/fml/client/SplashProgress$3" })

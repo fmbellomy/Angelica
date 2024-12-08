@@ -3,8 +3,8 @@ package com.prupe.mcpatcher.mob;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.ResourceLocation;
 
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.input.Keyboard;
+import org.lwjglx.opengl.GL11;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.mal.resource.PropertiesFile;

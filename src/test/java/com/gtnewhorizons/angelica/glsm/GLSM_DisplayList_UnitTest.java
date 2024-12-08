@@ -3,7 +3,7 @@ package com.gtnewhorizons.angelica.glsm;
 import com.gtnewhorizons.angelica.AngelicaExtension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import static com.gtnewhorizons.angelica.util.GLSMUtil.verifyState;
 

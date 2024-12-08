@@ -3,9 +3,9 @@ package net.coderbot.iris.texture.util;
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL30;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL30;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;

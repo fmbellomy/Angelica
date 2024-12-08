@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.joml.Matrix4f;
 import org.joml.Vector3d;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.opengl.GL11;
 
 import java.nio.FloatBuffer;
 

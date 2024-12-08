@@ -10,7 +10,7 @@ import net.coderbot.iris.gl.texture.DepthCopyStrategy;
 import net.coderbot.iris.shaderpack.PackDirectives;
 import net.coderbot.iris.shaderpack.PackRenderTargetDirectives;
 import org.joml.Vector2i;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import java.util.ArrayList;
 import java.util.List;

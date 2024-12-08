@@ -4,7 +4,7 @@ import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import com.gtnewhorizons.angelica.compat.mojang.NativeImage;
 import net.minecraft.client.Minecraft;
 import org.apache.commons.io.FilenameUtils;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import java.io.File;
 

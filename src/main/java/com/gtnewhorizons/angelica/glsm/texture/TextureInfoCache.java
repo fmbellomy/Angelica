@@ -4,7 +4,7 @@ import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import org.jetbrains.annotations.Nullable;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import java.nio.IntBuffer;
 

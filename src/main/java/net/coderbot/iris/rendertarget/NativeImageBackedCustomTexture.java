@@ -4,8 +4,8 @@ import com.gtnewhorizons.angelica.compat.mojang.NativeImage;
 import com.gtnewhorizons.angelica.glsm.RenderSystem;
 import net.coderbot.iris.shaderpack.texture.CustomTextureData;
 import net.minecraft.client.renderer.texture.DynamicTexture;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL12;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;

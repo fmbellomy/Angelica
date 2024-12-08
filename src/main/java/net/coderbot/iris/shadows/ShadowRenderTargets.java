@@ -11,7 +11,7 @@ import net.coderbot.iris.gl.texture.InternalTextureFormat;
 import net.coderbot.iris.rendertarget.DepthTexture;
 import net.coderbot.iris.rendertarget.RenderTarget;
 import net.coderbot.iris.shaderpack.PackShadowDirectives;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 import java.util.ArrayList;
 import java.util.List;

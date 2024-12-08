@@ -3,11 +3,11 @@ package com.gtnewhorizons.angelica.glsm.dsa;
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import com.gtnewhorizons.angelica.glsm.RenderSystem;
 import net.minecraft.client.renderer.OpenGlHelper;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL15;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GL30;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL13;
+import org.lwjglx.opengl.GL15;
+import org.lwjglx.opengl.GL20;
+import org.lwjglx.opengl.GL30;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;

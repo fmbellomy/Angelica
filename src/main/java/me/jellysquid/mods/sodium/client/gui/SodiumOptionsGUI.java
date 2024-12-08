@@ -21,7 +21,7 @@ import net.coderbot.iris.gui.screen.ShaderPackScreen;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.EnumChatFormatting;
-import org.lwjgl.input.Keyboard;
+import org.lwjglx.input.Keyboard;
 
 import java.util.ArrayList;
 import java.util.EnumSet;

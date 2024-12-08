@@ -4,7 +4,7 @@ import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import cpw.mods.fml.client.config.GuiUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL14;
+import org.lwjglx.opengl.GL14;
 
 import java.util.function.Consumer;
 

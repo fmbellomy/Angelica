@@ -40,7 +40,7 @@ import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Vec3;
-import org.lwjgl.opengl.GL11;
+import org.lwjglx.opengl.GL11;
 
 public class CloudRenderer implements IResourceManagerReloadListener {
     // Shared constants.

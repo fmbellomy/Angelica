@@ -7,9 +7,9 @@ import com.gtnewhorizons.angelica.glsm.RenderSystem;
 import net.coderbot.iris.gl.GlResource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.KHRDebug;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL20;
+import org.lwjglx.opengl.KHRDebug;
 
 import java.util.Locale;
 

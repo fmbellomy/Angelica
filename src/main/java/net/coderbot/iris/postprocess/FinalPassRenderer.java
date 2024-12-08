@@ -33,10 +33,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.shader.Framebuffer;
 import org.jetbrains.annotations.Nullable;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GL30;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL13;
+import org.lwjglx.opengl.GL20;
+import org.lwjglx.opengl.GL30;
 
 import java.util.Map;
 import java.util.Objects;

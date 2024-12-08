@@ -46,12 +46,12 @@ import org.joml.Matrix4f;
 import org.joml.Vector3d;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.ARBTextureSwizzle;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL14;
-import org.lwjgl.opengl.GL30;
+import org.lwjglx.BufferUtils;
+import org.lwjglx.opengl.ARBTextureSwizzle;
+import org.lwjglx.opengl.GL11;
+import org.lwjglx.opengl.GL13;
+import org.lwjglx.opengl.GL14;
+import org.lwjglx.opengl.GL30;
 
 public class ShadowRenderer {
 	public static final Matrix4f MODELVIEW = new Matrix4f();
