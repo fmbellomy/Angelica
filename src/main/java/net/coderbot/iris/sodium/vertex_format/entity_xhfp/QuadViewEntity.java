@@ -1,13 +1,10 @@
 package net.coderbot.iris.sodium.vertex_format.entity_xhfp;
 
-import static org.lwjgl.system.MemoryUtil.memGetFloat;
-
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
+import com.gtnewhorizons.angelica.compat.lwjgl.CompatMemoryUtil;
 import net.coderbot.iris.vertices.IrisQuadView;
 
 import java.nio.ByteBuffer;
 
-@Lwjgl3Aware
 public abstract class QuadViewEntity implements IrisQuadView {
 	long writePointer;
 	int stride;
@@ -47,7 +44,7 @@ public abstract class QuadViewEntity implements IrisQuadView {
 
 		@Override
 		float getFloat(long writePointer) {
-			return memGetFloat(writePointer);
+			return CompatMemoryUtil.memGetFloat(writePointer);
 		}
 	}
 

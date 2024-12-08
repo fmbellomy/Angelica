@@ -2,29 +2,10 @@ plugins {
     id("com.gtnewhorizons.gtnhconvention")
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-    }
-    testing {
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(21)
-        }
-    }
-}
-
 minecraft {
-    javaCompatibilityVersion.set(21)
-
     extraRunJvmArguments.add("-Dangelica.enableTestBlocks=true")
 }
 
-// Regular runClient/runServer tasks run in Java 17 in this project.
-/*tasks.runClient17 { enabled = false }
-tasks.runClient21 { enabled = false }
-tasks.runServer17 { enabled = false }
-tasks.runServer21 { enabled = false }
-*/
 tasks.test {
     useJUnitPlatform()
     testLogging {

@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,7 +20,6 @@ import org.lwjgl.opengl.GL11;
 // Adapted from https://github.com/makamys/CoreTweaks/blob/master/src/main/java/makamys/coretweaks/util/OpenGLDebugging.java;
 // originally from https://github.com/TheGreyGhost/MinecraftByExample/blob/1-8final/src/main/java/minecraftbyexample/usefultools/OpenGLdebugging.java
 
-@Lwjgl3Aware
 public class OpenGLDebugging {
 
     public static final Logger LOGGER = LogManager.getLogger("gldumper");
@@ -63,7 +61,7 @@ public class OpenGLDebugging {
                         if(glsm) {
                             GLStateManager.glGetBoolean(gLConstant, byteBuffer);
                         } else {
-                            GL11.glGetBooleanv(gLConstant, byteBuffer);
+                            GL11.glGetBoolean(gLConstant, byteBuffer);
                         }
                         final StringBuilder out = new StringBuilder();
                         for (int i = 0; i < byteBuffer.capacity(); ++i) {
@@ -80,7 +78,7 @@ public class OpenGLDebugging {
                         if(glsm) {
                             GLStateManager.glGetInteger(gLConstant, intBuffer);
                         } else {
-                            GL11.glGetIntegerv(gLConstant, intBuffer);
+                            GL11.glGetInteger(gLConstant, intBuffer);
                         }
                         final StringBuilder out = new StringBuilder();
                         for (int i = 0; i < intBuffer.remaining(); ++i) {
@@ -97,7 +95,7 @@ public class OpenGLDebugging {
                         if(glsm) {
                             GLStateManager.glGetFloat(gLConstant, floatBuffer);
                         } else {
-                            GL11.glGetFloatv(gLConstant, floatBuffer);
+                            GL11.glGetFloat(gLConstant, floatBuffer);
                         }
                         final StringBuilder out = new StringBuilder();
                         for (int i = 0; i < floatBuffer.remaining(); ++i) {
@@ -123,7 +121,7 @@ public class OpenGLDebugging {
                 GLStateManager.glGetFloat(gLConstant, floatBuffer);
                 return cachedMatrix.set(0, floatBuffer);
             } else {
-                GL11.glGetFloatv(gLConstant, floatBuffer);
+                GL11.glGetFloat(gLConstant, floatBuffer);
                 return uncachedMatrix.set(0, floatBuffer);
             }
         }

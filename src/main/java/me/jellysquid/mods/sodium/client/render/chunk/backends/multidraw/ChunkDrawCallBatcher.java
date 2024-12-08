@@ -1,9 +1,7 @@
 package me.jellysquid.mods.sodium.client.render.chunk.backends.multidraw;
 
-import static org.lwjgl.system.MemoryUtil.memPutInt;
-
+import com.gtnewhorizons.angelica.compat.lwjgl.CompatMemoryUtil;
 import com.gtnewhorizons.angelica.compat.mojang.CompatMathHelper;
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import me.jellysquid.mods.sodium.client.SodiumClientMod;
 import org.lwjgl.MemoryUtil;
 
@@ -13,7 +11,6 @@ import java.nio.ByteBuffer;
 /**
  * Provides a fixed-size buffer which can be used to batch chunk section draw calls.
  */
-@Lwjgl3Aware
 public abstract class ChunkDrawCallBatcher extends StructBuffer {
     protected final int capacity;
 
@@ -86,10 +83,10 @@ public abstract class ChunkDrawCallBatcher extends StructBuffer {
                 throw new BufferUnderflowException();
             }
 
-            memPutInt(this.writePointer, count); // Vertex Count
-            memPutInt(this.writePointer +  4, instanceCount); // Instance Count
-            memPutInt(this.writePointer +  8, first); // Vertex Start
-            memPutInt(this.writePointer + 12, baseInstance); // Base Instance
+            CompatMemoryUtil.memPutInt(this.writePointer     , count);         // Vertex Count
+            CompatMemoryUtil.memPutInt(this.writePointer +  4, instanceCount); // Instance Count
+            CompatMemoryUtil.memPutInt(this.writePointer +  8, first);         // Vertex Start
+            CompatMemoryUtil.memPutInt(this.writePointer + 12, baseInstance);  // Base Instance
 
             this.writePointer += this.stride;
         }

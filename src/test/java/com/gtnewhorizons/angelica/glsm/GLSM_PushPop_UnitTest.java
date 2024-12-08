@@ -1,17 +1,7 @@
 package com.gtnewhorizons.angelica.glsm;
 
-import static com.gtnewhorizons.angelica.util.GLSMUtil.verifyIsEnabled;
-import static com.gtnewhorizons.angelica.util.GLSMUtil.verifyLightState;
-import static com.gtnewhorizons.angelica.util.GLSMUtil.verifyNotDefaultState;
-import static com.gtnewhorizons.angelica.util.GLSMUtil.verifyState;
-import static org.lwjglx.opengl.GL14.GL_BLEND_COLOR;
-import static org.lwjglx.opengl.GL14.GL_BLEND_EQUATION;
-
 import com.gtnewhorizons.angelica.AngelicaExtension;
 import com.gtnewhorizons.angelica.util.GLBit;
-import java.nio.FloatBuffer;
-import java.util.ArrayList;
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.lwjgl.BufferUtils;
@@ -21,7 +11,14 @@ import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL14;
 import org.lwjgl.opengl.GL20;
 
-@Lwjgl3Aware
+import java.nio.FloatBuffer;
+import java.util.ArrayList;
+
+import static com.gtnewhorizons.angelica.util.GLSMUtil.verifyIsEnabled;
+import static com.gtnewhorizons.angelica.util.GLSMUtil.verifyLightState;
+import static com.gtnewhorizons.angelica.util.GLSMUtil.verifyNotDefaultState;
+import static com.gtnewhorizons.angelica.util.GLSMUtil.verifyState;
+
 @ExtendWith(AngelicaExtension.class)
 class GLSM_PushPop_UnitTest {
 
@@ -82,8 +79,8 @@ class GLSM_PushPop_UnitTest {
         verifyIsEnabled(GL11.GL_BLEND, true, "Blend Enable");
         verifyState(GL11.GL_BLEND_SRC, GL11.GL_SRC_ALPHA, "Blend Source");
         verifyState(GL11.GL_BLEND_DST, GL11.GL_ONE_MINUS_SRC_ALPHA, "Blend Destination");
-        verifyState(GL_BLEND_COLOR, FLOAT_ARRAY_4_1, "Blend Color");
-        verifyState(GL_BLEND_EQUATION, GL14.GL_FUNC_REVERSE_SUBTRACT, "Blend Equation");
+        verifyState(GL14.GL_BLEND_COLOR, FLOAT_ARRAY_4_1, "Blend Color");
+        verifyState(GL14.GL_BLEND_EQUATION, GL14.GL_FUNC_REVERSE_SUBTRACT, "Blend Equation");
         verifyState(GL20.GL_BLEND_EQUATION_ALPHA, GL14.GL_FUNC_REVERSE_SUBTRACT, "Blend Equation Alpha");
         verifyIsEnabled(GL11.GL_DITHER, false, "Dither Enable");
         verifyState(GL11.GL_DRAW_BUFFER, GL11.GL_FRONT_AND_BACK, "Draw Buffer");
@@ -102,8 +99,8 @@ class GLSM_PushPop_UnitTest {
         verifyIsEnabled(GL11.GL_BLEND, false, "Blend Enable - Reset");
         verifyState(GL11.GL_BLEND_SRC, GL11.GL_ONE, "Blend Source - Reset");
         verifyState(GL11.GL_BLEND_DST, GL11.GL_ZERO, "Blend Destination - Reset");
-        verifyState(GL_BLEND_COLOR, FLOAT_ARRAY_4_0, "Blend Color - Reset");
-        verifyState(GL_BLEND_EQUATION, GL14.GL_FUNC_ADD, "Blend Equation - Reset");
+        verifyState(GL14.GL_BLEND_COLOR, FLOAT_ARRAY_4_0, "Blend Color - Reset");
+        verifyState(GL14.GL_BLEND_EQUATION, GL14.GL_FUNC_ADD, "Blend Equation - Reset");
         verifyState(GL20.GL_BLEND_EQUATION_ALPHA, GL14.GL_FUNC_ADD, "Blend Equation Alpha - Reset");
         verifyIsEnabled(GL11.GL_DITHER, true, "Dither Enable - Reset");
         verifyState(GL11.GL_DRAW_BUFFER, GL11.GL_BACK, "Draw Buffer - Reset");

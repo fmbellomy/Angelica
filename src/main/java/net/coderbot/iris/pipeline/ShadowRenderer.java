@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import me.jellysquid.mods.sodium.client.render.SodiumWorldRenderer;
 import net.coderbot.iris.Iris;
 import net.coderbot.iris.shaderpack.OptionalBoolean;
@@ -54,7 +53,6 @@ import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL14;
 import org.lwjgl.opengl.GL30;
 
-@Lwjgl3Aware
 public class ShadowRenderer {
 	public static final Matrix4f MODELVIEW = new Matrix4f();
     public static final FloatBuffer MODELVIEW_BUFFER = BufferUtils.createFloatBuffer(16);
@@ -380,7 +378,7 @@ public class ShadowRenderer {
         GL11.glPushMatrix();
         MODELVIEW_BUFFER.clear().rewind();
         modelView.peek().getModel().get(MODELVIEW_BUFFER);
-        GL11.glLoadMatrixf(MODELVIEW_BUFFER);
+        GL11.glLoadMatrix(MODELVIEW_BUFFER);
 		for (Entity entity : renderedEntities) {
 			RenderManager.instance.renderEntitySimple(entity, tickDelta);
 			shadowEntities++;
@@ -409,7 +407,7 @@ public class ShadowRenderer {
         GL11.glPushMatrix();
         MODELVIEW_BUFFER.clear().rewind();
         modelView.peek().getModel().get(MODELVIEW_BUFFER);
-        GL11.glLoadMatrixf(MODELVIEW_BUFFER);
+        GL11.glLoadMatrix(MODELVIEW_BUFFER);
 
         if (player.riddenByEntity != null) {
             RenderManager.instance.renderEntitySimple(player.riddenByEntity, tickDelta);
@@ -460,7 +458,7 @@ public class ShadowRenderer {
         GL11.glPushMatrix();
         MODELVIEW_BUFFER.clear().rewind();
         modelView.peek().getModel().get(MODELVIEW_BUFFER);
-        GL11.glLoadMatrixf(MODELVIEW_BUFFER);
+        GL11.glLoadMatrix(MODELVIEW_BUFFER);
 		for (TileEntity tileEntity : visibleTileEntities) {
 			if (hasEntityFrustum && (culler.isCulled(tileEntity.xCoord - 1, tileEntity.yCoord - 1, tileEntity.zCoord - 1, tileEntity.xCoord + 1, tileEntity.yCoord + 1, tileEntity.zCoord + 1))) {
                 continue;

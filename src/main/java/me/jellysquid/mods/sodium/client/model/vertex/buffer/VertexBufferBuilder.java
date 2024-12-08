@@ -1,14 +1,11 @@
 package me.jellysquid.mods.sodium.client.model.vertex.buffer;
 
-import static org.lwjgl.system.MemoryUtil.memRealloc;
-
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
+import com.gtnewhorizons.angelica.compat.lwjgl.CompatMemoryUtil;
 import me.jellysquid.mods.sodium.client.gl.attribute.BufferVertexFormat;
 import org.lwjgl.BufferUtils;
 
 import java.nio.ByteBuffer;
 
-@Lwjgl3Aware
 public class VertexBufferBuilder implements VertexBufferView {
     private final BufferVertexFormat vertexFormat;
 
@@ -28,7 +25,7 @@ public class VertexBufferBuilder implements VertexBufferView {
         // The new capacity will at least as large as the write it needs to service
         final int cap = Math.max(this.capacity * 2, this.capacity + len);
 
-        this.buffer = memRealloc(this.buffer, cap);
+        this.buffer = CompatMemoryUtil.memReallocDirect(this.buffer, cap);
         this.capacity = cap;
     }
 

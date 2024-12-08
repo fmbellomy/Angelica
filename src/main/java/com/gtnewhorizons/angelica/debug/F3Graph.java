@@ -24,24 +24,21 @@ import static org.lwjgl.opengl.GL15.glBufferData;
 import static org.lwjgl.opengl.GL15.glGenBuffers;
 import static org.lwjgl.opengl.GL20.glDisableVertexAttribArray;
 import static org.lwjgl.opengl.GL20.glEnableVertexAttribArray;
+import static org.lwjgl.opengl.GL20.glUniform1;
 import static org.lwjgl.opengl.GL20.glUniform1f;
-import static org.lwjgl.opengl.GL20.glUniform1fv;
 import static org.lwjgl.opengl.GL20.glUniform1i;
 import static org.lwjgl.opengl.GL20.glVertexAttribPointer;
-import static org.lwjgl.system.MemoryStack.stackPush;
 
 import com.gtnewhorizon.gtnhlib.client.renderer.shader.ShaderProgram;
+import com.gtnewhorizons.angelica.compat.lwjgl.MemoryStack;
 import java.nio.FloatBuffer;
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.BufferUtils;
-import org.lwjgl.system.MemoryStack;
 
-@Lwjgl3Aware
 public abstract class F3Graph {
     private static final int NUM_SAMPLES = 240;
     // Two floats (x,y)
@@ -134,7 +131,7 @@ public abstract class F3Graph {
         // Load vertex buffer
         vertBuf = glGenBuffers();
         glBindBuffer(GL_ARRAY_BUFFER, vertBuf);
-        try (final MemoryStack stack = stackPush()) {
+        try (final MemoryStack stack = MemoryStack.stackPush()) {
             final FloatBuffer vertices = stack.mallocFloat(VERT_COUNT * VERT_FLOATS);
             // Since we use a triangle strip, we only need 4 vertices. The quad extends to the top of the screen so spikes
             // don't get truncated. The max height is replaced in the vert shader, no need to be precise.
@@ -158,7 +155,7 @@ public abstract class F3Graph {
         glUniform1f(uFBHeight, mc.displayHeight);
         glUniform1f(uScaleFactor, sr.getScaleFactor());
         glUniform1i(uHeadIdx, samplesHead);
-        glUniform1fv(uSamples, sampleBuf);
+        glUniform1(uSamples, sampleBuf);
         glUniform1f(uPxPerNs, pxPerNs);
         glUniform1i(uLeft, left ? 1 : 0); // this is how you load bool uniforms
 
@@ -213,7 +210,7 @@ public abstract class F3Graph {
         glUniform1f(uFBHeight, mc.displayHeight);
         glUniform1f(uScaleFactor, sr.getScaleFactor());
         glUniform1i(uHeadIdx, samplesHead);
-        glUniform1fv(uSamples, sampleBuf);
+        glUniform1(uSamples, sampleBuf);
 
         glBindBuffer(GL_ARRAY_BUFFER, vertBuf);
         glEnableVertexAttribArray(aPos);

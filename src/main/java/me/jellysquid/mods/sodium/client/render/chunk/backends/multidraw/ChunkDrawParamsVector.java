@@ -1,9 +1,6 @@
 package me.jellysquid.mods.sodium.client.render.chunk.backends.multidraw;
 
-import static org.lwjgl.system.MemoryUtil.memPutFloat;
-import static org.lwjgl.system.MemoryUtil.memRealloc;
-
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
+import com.gtnewhorizons.angelica.compat.lwjgl.CompatMemoryUtil;
 import me.jellysquid.mods.sodium.client.SodiumClientMod;
 import org.lwjgl.MemoryUtil;
 
@@ -13,7 +10,6 @@ import java.nio.ByteBuffer;
  * Provides a resizeable vector backed by native memory that can be used to build an array of chunk draw call
  * parameters.
  */
-@Lwjgl3Aware
 public abstract class ChunkDrawParamsVector extends StructBuffer {
     protected int capacity;
     protected int count;
@@ -36,7 +32,7 @@ public abstract class ChunkDrawParamsVector extends StructBuffer {
 
     protected void growBuffer() {
         this.capacity = this.capacity * 2;
-        this.buffer = memRealloc(this.buffer, this.capacity * this.stride);
+        this.buffer = CompatMemoryUtil.memReallocDirect(this.buffer, this.capacity * this.stride);
     }
 
     public static class UnsafeChunkDrawCallVector extends ChunkDrawParamsVector {
@@ -55,9 +51,9 @@ public abstract class ChunkDrawParamsVector extends StructBuffer {
                 this.growBuffer();
             }
 
-            memPutFloat(this.writePointer, x);
-            memPutFloat(this.writePointer + 4, y);
-            memPutFloat(this.writePointer + 8, z);
+            CompatMemoryUtil.memPutFloat(this.writePointer    , x);
+            CompatMemoryUtil.memPutFloat(this.writePointer + 4, y);
+            CompatMemoryUtil.memPutFloat(this.writePointer + 8, z);
 
             this.writePointer += this.stride;
         }

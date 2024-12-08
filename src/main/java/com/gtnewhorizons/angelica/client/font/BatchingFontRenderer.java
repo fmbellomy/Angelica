@@ -1,13 +1,11 @@
 package com.gtnewhorizons.angelica.client.font;
 
-import static org.lwjgl.system.MemoryUtil.memRealloc;
-
+import com.gtnewhorizons.angelica.compat.lwjgl.CompatMemoryUtil;
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import com.gtnewhorizons.angelica.mixins.interfaces.FontRendererAccessor;
 import it.unimi.dsi.fastutil.chars.Char2ShortOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import jss.util.RandomXoshiro256StarStar;
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.MathHelper;
@@ -27,7 +25,6 @@ import java.util.Objects;
  *
  * @author eigenraven
  */
-@Lwjgl3Aware
 public class BatchingFontRenderer {
 
     /** The underlying FontRenderer object that's being accelerated */
@@ -112,12 +109,12 @@ public class BatchingFontRenderer {
         final int oldCap = batchVtxPositions.capacity() / 2;
         if (vtxWriterIndex >= oldCap) {
             final int newCap = oldCap * 2;
-            batchVtxPositions = memRealloc(batchVtxPositions, newCap * 2);
-            batchVtxColors = memRealloc(batchVtxColors, newCap * 4);
-            batchVtxTexCoords = memRealloc(batchVtxTexCoords, newCap * 2);
+            batchVtxPositions = CompatMemoryUtil.memReallocDirect(batchVtxPositions, newCap * 2);
+            batchVtxColors = CompatMemoryUtil.memReallocDirect(batchVtxColors, newCap * 4);
+            batchVtxTexCoords = CompatMemoryUtil.memReallocDirect(batchVtxTexCoords, newCap * 2);
             final int oldIdxCap = batchIndices.capacity();
             final int newIdxCap = oldIdxCap * 2;
-            batchIndices = memRealloc(batchIndices, newIdxCap);
+            batchIndices = CompatMemoryUtil.memReallocDirect(batchIndices, newIdxCap);
         }
         final int idx = vtxWriterIndex;
         final int idx2 = idx * 2;
@@ -259,11 +256,11 @@ public class BatchingFontRenderer {
         GLStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, GL11.GL_ONE, GL11.GL_ZERO);
         GLStateManager.glShadeModel(GL11.GL_FLAT);
 
-        GL11.glTexCoordPointer(2, GL11.GL_DOUBLE, 0, batchVtxTexCoords);
+        GL11.glTexCoordPointer(2, 0, batchVtxTexCoords);
         GL11.glEnableClientState(GL11.GL_TEXTURE_COORD_ARRAY);
         GL11.glColorPointer(4, GL11.GL_UNSIGNED_BYTE, 0, batchVtxColors);
         GL11.glEnableClientState(GL11.GL_COLOR_ARRAY);
-        GL11.glVertexPointer(2, GL11.GL_DOUBLE, 0, batchVtxPositions);
+        GL11.glVertexPointer(2, 0, batchVtxPositions);
         GL11.glEnableClientState(GL11.GL_VERTEX_ARRAY);
         GLStateManager.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 

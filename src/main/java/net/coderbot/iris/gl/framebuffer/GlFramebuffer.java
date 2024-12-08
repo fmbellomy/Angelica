@@ -1,22 +1,18 @@
 package net.coderbot.iris.gl.framebuffer;
 
-import static org.lwjgl.system.MemoryStack.stackPush;
-
+import com.gtnewhorizons.angelica.compat.lwjgl.MemoryStack;
 import com.gtnewhorizons.angelica.glsm.RenderSystem;
 import com.gtnewhorizons.angelica.glsm.texture.TextureInfoCache;
 import it.unimi.dsi.fastutil.ints.Int2IntArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2IntMap;
 import java.nio.IntBuffer;
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import net.coderbot.iris.gl.GlResource;
 import net.coderbot.iris.gl.texture.DepthBufferFormat;
 import net.minecraft.client.renderer.OpenGlHelper;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
-import org.lwjgl.system.MemoryStack;
 
-@Lwjgl3Aware
 public class GlFramebuffer extends GlResource {
 	private final Int2IntMap attachments;
 	private final int maxDrawBuffers;
@@ -55,7 +51,7 @@ public class GlFramebuffer extends GlResource {
 	}
 
 	public void noDrawBuffers() {
-        try (MemoryStack stack = stackPush()) {
+        try (MemoryStack stack = MemoryStack.stackPush()) {
             final IntBuffer buffer = stack.mallocInt(1);
             buffer.put(GL11.GL_NONE);
             RenderSystem.drawBuffers(getGlId(), buffer);
@@ -63,7 +59,7 @@ public class GlFramebuffer extends GlResource {
 	}
 
 	public void drawBuffers(int[] buffers) {
-        try (MemoryStack stack = stackPush()) {
+        try (MemoryStack stack = MemoryStack.stackPush()) {
             final IntBuffer glBuffers = stack.mallocInt(buffers.length);
             int index = 0;
 

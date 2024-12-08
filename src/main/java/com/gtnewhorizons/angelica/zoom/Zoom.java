@@ -8,7 +8,7 @@ import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.MathHelper;
-import org.lwjglx.input.Keyboard;
+import org.lwjgl.input.Keyboard;
 
 public class Zoom {
 

@@ -13,7 +13,6 @@ import java.util.TreeMap;
 
 import javax.imageio.ImageIO;
 
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import net.minecraft.client.renderer.texture.ITextureObject;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureClock;
@@ -40,7 +39,6 @@ import com.prupe.mcpatcher.mal.util.InputHandler;
 
 import jss.notfine.config.MCPatcherForgeConfig;
 
-@Lwjgl3Aware
 public class FancyDial {
 
     private static final MCLogger logger = MCLogger.getLogger(MCLogger.Category.EXTENDED_HD, "Animation");
@@ -486,6 +484,12 @@ public class FancyDial {
         return String.format("FancyDial{%s, %dx%d @ %d,%d}", name, width, height, x0, y0);
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        finish();
+        super.finalize();
+    }
+
     private static double getAngle(IIcon icon) {
         if (icon instanceof TextureCompass) {
             return ((TextureCompass) icon).currentAngle * 180.0 / Math.PI;
@@ -700,6 +704,12 @@ public class FancyDial {
                 }
                 EXTFramebufferObject.glDeleteFramebuffersEXT(frameBuffer);
             }
+        }
+
+        @Override
+        protected void finalize() throws Throwable {
+            delete();
+            super.finalize();
         }
 
         private static int blankTexture(int width, int height) {

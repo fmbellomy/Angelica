@@ -1,8 +1,7 @@
 package me.jellysquid.mods.sodium.client.render.chunk.shader;
 
+import com.gtnewhorizons.angelica.compat.lwjgl.MemoryStack;
 import com.gtnewhorizons.angelica.compat.toremove.MatrixStack;
-import java.util.function.Function;
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import me.jellysquid.mods.sodium.client.gl.device.RenderDevice;
 import me.jellysquid.mods.sodium.client.gl.shader.GlProgram;
 import me.jellysquid.mods.sodium.client.render.GameRendererContext;
@@ -10,12 +9,12 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
-import org.lwjgl.system.MemoryStack;
+
+import java.util.function.Function;
 
 /**
  * A forward-rendering shader program for chunks.
  */
-@Lwjgl3Aware
 public class ChunkProgram extends GlProgram {
     // Uniform variable binding indexes
     private final int uModelViewProjectionMatrix;
@@ -51,7 +50,7 @@ public class ChunkProgram extends GlProgram {
 
         if (this.uModelViewProjectionMatrix == -1) return;
         try (MemoryStack stack = MemoryStack.stackPush()) {
-            GL20.glUniformMatrix4fv(
+            GL20.glUniformMatrix4(
                 this.uModelViewProjectionMatrix,
                 false,
                 GameRendererContext.getModelViewProjectionMatrix(matrixStack.peek(), stack));

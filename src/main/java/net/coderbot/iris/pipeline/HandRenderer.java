@@ -5,7 +5,6 @@ import com.gtnewhorizons.angelica.compat.mojang.InteractionHand;
 import com.gtnewhorizons.angelica.compat.toremove.RenderLayer;
 import com.gtnewhorizons.angelica.glsm.GLStateManager;
 import com.gtnewhorizons.angelica.rendering.RenderingState;
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import net.coderbot.iris.block_rendering.BlockRenderingSettings;
 import net.irisshaders.iris.api.v0.IrisApi;
 import net.minecraft.block.Block;
@@ -19,7 +18,6 @@ import org.lwjgl.util.glu.Project;
 
 import java.util.Map;
 
-@Lwjgl3Aware
 public class HandRenderer {
     public static final HandRenderer INSTANCE = new HandRenderer();
 
@@ -172,7 +170,7 @@ public class HandRenderer {
     private void resetProjectionMatrix() {
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glLoadIdentity();
-        GL11.glMultMatrixf(RenderingState.INSTANCE.getProjectionBuffer());
+        GL11.glMultMatrix(RenderingState.INSTANCE.getProjectionBuffer());
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
     }
 

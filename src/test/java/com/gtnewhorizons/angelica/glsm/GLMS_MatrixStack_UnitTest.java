@@ -1,11 +1,6 @@
 package com.gtnewhorizons.angelica.glsm;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import com.gtnewhorizons.angelica.AngelicaExtension;
-import java.nio.FloatBuffer;
-import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import org.joml.Matrix4f;
 import org.joml.Matrix4fStack;
 import org.junit.jupiter.api.AfterAll;
@@ -15,7 +10,11 @@ import org.junit.jupiter.params.provider.EnumSource;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 
-@Lwjgl3Aware
+import java.nio.FloatBuffer;
+
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 @ExtendWith(AngelicaExtension.class)
 public class GLMS_MatrixStack_UnitTest {
 
@@ -25,7 +24,7 @@ public class GLMS_MatrixStack_UnitTest {
         if(cached) {
             GLStateManager.glGetFloat(matrix, buffer);
         } else {
-            GL11.glGetFloatv(matrix, buffer);
+            GL11.glGetFloat(matrix, buffer);
         }
         return new Matrix4f(buffer);
     }
