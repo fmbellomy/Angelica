@@ -2,8 +2,10 @@ package com.gtnewhorizons.angelica.glsm.states;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.lwjglx.opengl.GL11;
+import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
+import org.lwjgl.opengl.GL11;
 
+@Lwjgl3Aware
 @Getter
 public class AlphaState implements ISettableState<AlphaState> {
     @Setter protected int function = GL11.GL_ALWAYS;

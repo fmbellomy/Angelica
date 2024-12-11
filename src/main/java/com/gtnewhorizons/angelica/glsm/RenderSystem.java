@@ -4,20 +4,21 @@ import com.gtnewhorizons.angelica.glsm.dsa.DSAARB;
 import com.gtnewhorizons.angelica.glsm.dsa.DSAAccess;
 import com.gtnewhorizons.angelica.glsm.dsa.DSACore;
 import com.gtnewhorizons.angelica.glsm.dsa.DSAUnsupported;
+import me.eigenraven.lwjgl3ify.api.Lwjgl3Aware;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Matrix4f;
 import org.joml.Vector3i;
 import org.lwjglx.BufferUtils;
-import org.lwjglx.opengl.EXTShaderImageLoadStore;
-import org.lwjglx.opengl.GL11;
-import org.lwjglx.opengl.GL15;
-import org.lwjglx.opengl.GL20;
-import org.lwjglx.opengl.GL30;
-import org.lwjglx.opengl.GL40;
-import org.lwjglx.opengl.GL42;
-import org.lwjglx.opengl.GL43;
+import org.lwjgl.opengl.EXTShaderImageLoadStore;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL15;
+import org.lwjgl.opengl.GL20;
+import org.lwjgl.opengl.GL30;
+import org.lwjgl.opengl.GL40;
+import org.lwjgl.opengl.GL42;
+import org.lwjgl.opengl.GL43;
 
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
@@ -27,6 +28,7 @@ import java.nio.IntBuffer;
 /**
  * This class is responsible for abstracting calls to OpenGL and asserting that calls are run on the render thread.
  */
+@Lwjgl3Aware
 public class RenderSystem {
     private static final Logger LOGGER = LogManager.getLogger("RenderSystem");
 	private static DSAAccess dsaState;
@@ -76,7 +78,7 @@ public class RenderSystem {
 	}
 
 	public static void uniformMatrix4fv(int location, boolean transpose, FloatBuffer matrix) {
-        GL20.glUniformMatrix4(location, transpose, matrix);
+        GL20.glUniformMatrix4fv(location, transpose, matrix);
 	}
 
 	public static void copyTexImage2D(int target, int level, int internalFormat, int x, int y, int width, int height, int border) {
@@ -152,7 +154,7 @@ public class RenderSystem {
 	}
 
 	public static String getActiveUniform(int program, int index, int maxLength, IntBuffer sizeType) {
-        return GL20.glGetActiveUniform(program, index, maxLength, sizeType);
+        return org.lwjglx.opengl.GL20.glGetActiveUniform(program, index, maxLength, sizeType);
 	}
 
 	public static void readPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
@@ -202,7 +204,7 @@ public class RenderSystem {
 	}
 
 	public static void getProgramiv(int program, int value, IntBuffer storage) {
-        GL20.glGetProgram(program, value, storage);
+        GL20.glGetProgramiv(program, value, storage);
 	}
 
 	public static void dispatchCompute(int workX, int workY, int workZ) {
@@ -244,7 +246,7 @@ public class RenderSystem {
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glPushMatrix();
         matrix.get(0, PROJECTION_MATRIX_BUFFER);
-        GL11.glLoadMatrix(PROJECTION_MATRIX_BUFFER);
+        GL11.glLoadMatrixf(PROJECTION_MATRIX_BUFFER);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
     }
 
